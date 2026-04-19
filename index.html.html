@@ -257,6 +257,7 @@ tr:hover td{background:var(--bg);cursor:pointer;}
   <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
   <button class="nav-tab" onclick="switchTab('observations')">Observations</button>
   <button class="nav-tab" onclick="switchTab('analytics')">Analytics</button>
+  <button class="nav-tab" onclick="switchTab('ncr')">NCR Register</button>
   <button class="nav-tab" id="nav-users" onclick="switchTab('users')" style="display:none;">Users</button>
 </div>
 
@@ -318,6 +319,37 @@ tr:hover td{background:var(--bg);cursor:pointer;}
     <div class="chart-row">
       <div class="chart-card"><div class="chart-title">Status breakdown</div><div style="position:relative;height:200px;"><canvas id="stC"></canvas></div></div>
       <div class="chart-card"><div class="chart-title">Priority distribution</div><div style="position:relative;height:200px;"><canvas id="prC"></canvas></div></div>
+    </div>
+  </div>
+
+  <!-- NCR REGISTER -->
+  <div class="sec" id="tab-ncr">
+    <div class="page-hdr">
+      <div class="page-title">NCR Register</div>
+      <button class="btn btn-p" onclick="openAddNcr()">+ Raise NCR</button>
+    </div>
+    <div class="kpi-grid" id="ncr-kpi" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));"></div>
+    <div class="chart-row">
+      <div class="chart-card"><div class="chart-title">NCRs by category</div><div style="position:relative;height:200px;"><canvas id="ncrCatC"></canvas></div></div>
+      <div class="chart-card"><div class="chart-title">NCRs by severity</div><div style="position:relative;height:200px;"><canvas id="ncrSevC"></canvas></div></div>
+    </div>
+    <div class="tbl-wrap">
+      <div class="tbl-hdr">
+        <div class="tbl-title">Non-Conformance Reports</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input class="fi" id="ncr-srch" placeholder="Search..." oninput="renderNcr()" style="width:130px;">
+          <select class="fse-f" id="ncr-fst" onchange="renderNcr()">
+            <option value="">All status</option><option>Open</option><option>In Progress</option><option>Under Review</option><option>Closed</option><option>Overdue</option>
+          </select>
+          <select class="fse-f" id="ncr-fsv" onchange="renderNcr()">
+            <option value="">All severity</option><option>Critical</option><option>Major</option><option>Minor</option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>NCR ID</th><th>Raised</th><th>Category</th><th>Severity</th><th>Site</th><th>Assignee</th><th>Due</th><th>Status</th><th>Closure %</th><th>Photos</th><th>Actions</th></tr></thead>
+        <tbody id="ncr-tbody"></tbody>
+      </table>
     </div>
   </div>
 
@@ -449,6 +481,89 @@ tr:hover td{background:var(--bg);cursor:pointer;}
       <button class="btn" onclick="closeModal()">Cancel</button>
       <button class="btn btn-p" id="sv-btn" onclick="saveObs()">Save Observation</button>
     </div>
+  </div>
+</div>
+
+<!-- NCR MODAL -->
+<div class="modal-ov" id="ncr-modal" style="display:none;" onclick="if(event.target===this)closeNcrModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-hd"><div class="modal-t" id="ncr-m-title">Raise New NCR</div><button class="xbtn" onclick="closeNcrModal()">✕</button></div>
+    <div class="modal-bd">
+      <div class="frow">
+        <div class="fg" style="margin:0;"><label class="flb">Category</label>
+          <select class="fse" id="nf-cat"><option>PPE</option><option>Electrical</option><option>Fire Safety</option><option>Housekeeping</option><option>Chemical</option><option>Structural</option><option>Mechanical</option><option>Environmental</option><option>Documentation</option></select>
+        </div>
+        <div class="fg" style="margin:0;"><label class="flb">Severity</label>
+          <select class="fse" id="nf-sev"><option>Critical</option><option>Major</option><option>Minor</option></select>
+        </div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="frow">
+        <div class="fg" style="margin:0;"><label class="flb">Site / Location</label><input class="fin" id="nf-site" placeholder="e.g. Site 1 - Zone B"></div>
+        <div class="fg" style="margin:0;"><label class="flb">Raised By</label><input class="fin" id="nf-raised" placeholder="Inspector name"></div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="fg"><label class="flb">Non-Conformance Description *</label><textarea class="fta" id="nf-desc" placeholder="Describe the non-conformance in detail..."></textarea></div>
+      <div class="fg"><label class="flb">Root Cause (if known)</label><textarea class="fta" id="nf-rc" placeholder="Root cause analysis..."></textarea></div>
+      <div class="fg"><label class="flb">Corrective Action Required *</label><textarea class="fta" id="nf-ca" placeholder="What corrective action is required?"></textarea></div>
+      <div class="frow">
+        <div class="fg" style="margin:0;"><label class="flb">Assignee *</label><input class="fin" id="nf-asg" placeholder="Responsible person"></div>
+        <div class="fg" style="margin:0;"><label class="flb">Related Obs ID</label><input class="fin" id="nf-rel" placeholder="e.g. OBS-003 (optional)"></div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="frow">
+        <div class="fg" style="margin:0;"><label class="flb">Date Raised</label><input type="date" class="fin" id="nf-dt"></div>
+        <div class="fg" style="margin:0;"><label class="flb">Due Date *</label><input type="date" class="fin" id="nf-due"></div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="frow">
+        <div class="fg" style="margin:0;"><label class="flb">Status</label>
+          <select class="fse" id="nf-sts" onchange="toggleNcrCloseoutSection()"><option>Open</option><option>In Progress</option><option>Under Review</option><option>Closed</option></select>
+        </div>
+        <div class="fg" style="margin:0;"><label class="flb">Closure % (0-100)</label><input type="number" class="fin" id="nf-pct" min="0" max="100" value="0"></div>
+      </div>
+      <div style="height:10px;"></div>
+      <div class="fg">
+        <label class="flb">Finding / Evidence Photos</label>
+        <label class="phu" style="display:block;">
+          <input type="file" id="nf-pho" accept="image/*" multiple onchange="handleNcrPho(this,'finding')" style="display:none;">
+          <div style="font-size:22px;margin-bottom:6px;">📷</div>
+          <div style="font-size:13px;color:var(--mu);">Click to upload evidence of non-conformance</div>
+        </label>
+        <div class="pp" id="nf-pp"></div>
+      </div>
+      <div class="closeout-section" id="ncr-closeout-section" style="display:none;">
+        <label class="flb" style="margin-bottom:8px;">Closeout Photos (Proof of Correction)</label>
+        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Upload photos showing the non-conformance has been corrected</p>
+        <label class="phu" style="display:block;border-color:var(--gr);">
+          <input type="file" id="nf-cpho" accept="image/*" multiple onchange="handleNcrPho(this,'closeout')" style="display:none;">
+          <div style="font-size:22px;margin-bottom:6px;">📸</div>
+          <div style="font-size:13px;color:var(--gr);">Click to upload closeout evidence</div>
+        </label>
+        <div class="pp" id="nf-cpp"></div>
+        <div style="margin-top:10px;"><label class="flb">Closed By</label><input class="fin" id="nf-cby" placeholder="Who verified closure"></div>
+        <div style="margin-top:10px;"><label class="flb">Closure Date</label><input type="date" class="fin" id="nf-cdt"></div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn" onclick="closeNcrModal()">Cancel</button>
+      <button class="btn" id="ncr-del-btn" onclick="deleteNcr()" style="color:var(--re);border-color:var(--re);display:none;">Delete</button>
+      <button class="btn btn-p" id="ncr-sv-btn" onclick="saveNcr()">Save NCR</button>
+    </div>
+  </div>
+</div>
+
+<!-- NCR DETAIL MODAL -->
+<div class="modal-ov" id="ncr-detail-modal" style="display:none;" onclick="if(event.target===this)document.getElementById('ncr-detail-modal').style.display='none'">
+  <div class="modal" style="width:680px;" onclick="event.stopPropagation()">
+    <div class="modal-hd">
+      <div class="modal-t" id="ncr-det-title">NCR Detail</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-sm" id="ncr-det-edit-btn">Edit</button>
+        <button class="xbtn" onclick="document.getElementById('ncr-detail-modal').style.display='none'">✕</button>
+      </div>
+    </div>
+    <div class="modal-bd" id="ncr-det-body"></div>
   </div>
 </div>
 
@@ -840,6 +955,7 @@ function switchTab(tab){
   if(tab==='dashboard')renderDash();
   else if(tab==='observations')renderObs();
   else if(tab==='users')renderUsers();
+  else if(tab==='ncr')renderNcr();
   else renderAna();
 }
 
@@ -1151,7 +1267,285 @@ async function delObs(id){
   }
 }
 
+// ─── NCR MODULE ─────────────────────────────────────────────
+const NCR_SAMPLE=[
+  {id:'NCR-2026-001',date:'2026-03-02',category:'PPE',severity:'Major',site:'Site 1 - Floor 12',raisedBy:'Ahmed Al-Rashid',assignee:'Ali Hassan',due:'2026-03-12',status:'Overdue',closure:30,description:'Harness not worn at height >2m during scaffolding erection',rootCause:'Toolbox talk not conducted; PPE unavailable at level',correctiveAction:'Supply harnesses at access levels; re-train crew; supervisor sign-off required',relatedObs:'OBS-001',findingPhotos:[],closeoutPhotos:[],closedBy:'',closeDate:''},
+  {id:'NCR-2026-002',date:'2026-03-05',category:'Electrical',severity:'Critical',site:'Site 2 - B2 Basement',raisedBy:'Sara Al-Mutairi',assignee:'Khalid Bin Saleh',due:'2026-03-09',status:'In Progress',closure:55,description:'Temporary cables running through wet area without protection',rootCause:'Improper cable management plan',correctiveAction:'Install proper cable trays; implement LOTO procedure',relatedObs:'',findingPhotos:[],closeoutPhotos:[],closedBy:'',closeDate:''},
+  {id:'NCR-2026-003',date:'2026-03-08',category:'Fire Safety',severity:'Major',site:'Site 1 - Floor 4',raisedBy:'Khalid Bin Saleh',assignee:'Mohammed Al-Harbi',due:'2026-03-15',status:'Open',closure:10,description:'Flammable materials stored adjacent to hot work area',rootCause:'Lack of designated storage area',correctiveAction:'Relocate materials, install fire watch, hot work permit',relatedObs:'OBS-005',findingPhotos:[],closeoutPhotos:[],closedBy:'',closeDate:''},
+  {id:'NCR-2026-004',date:'2026-03-11',category:'Housekeeping',severity:'Minor',site:'Site 3 - Roof',raisedBy:'Mohammed Al-Harbi',assignee:'Fatima Ali',due:'2026-03-20',status:'Closed',closure:100,description:'Debris accumulation blocking emergency exit',rootCause:'Insufficient waste management frequency',correctiveAction:'Daily housekeeping, waste bins installed',relatedObs:'',findingPhotos:[],closeoutPhotos:[],closedBy:'Fatima Ali',closeDate:'2026-03-18'},
+  {id:'NCR-2026-005',date:'2026-03-14',category:'Chemical',severity:'Critical',site:'Site 2 - Mechanical Room',raisedBy:'Ahmed Al-Rashid',assignee:'Tariq Nguyen',due:'2026-03-18',status:'Open',closure:5,description:'Chemical storage without SDS posted and no spill containment',rootCause:'Procurement bypassed safety review',correctiveAction:'Post SDS, install bunded pallets, train handlers',relatedObs:'',findingPhotos:[],closeoutPhotos:[],closedBy:'',closeDate:''},
+];
+let ncrs=[],editNcrId=null,ncrFindingPhotos=[],ncrCloseoutPhotos=[];
+
+function getNcrs(){
+  const stored=localStorage.getItem('hse_ncrs');
+  if(stored){try{return JSON.parse(stored);}catch(e){}}
+  localStorage.setItem('hse_ncrs',JSON.stringify(NCR_SAMPLE));
+  return [...NCR_SAMPLE];
+}
+function saveNcrs(){localStorage.setItem('hse_ncrs',JSON.stringify(ncrs));}
+
+function nxtNcrId(){
+  const yr=new Date().getFullYear();
+  const mx=ncrs.reduce((m,n)=>{const p=(n.id||'').split('-');if(p[1]==yr){const num=parseInt(p[2]);return num>m?num:m;}return m;},0);
+  return 'NCR-'+yr+'-'+String(mx+1).padStart(3,'0');
+}
+
+function ncrStatus(n){
+  if(n.status==='Closed')return'Closed';
+  if(n.due&&n.due<td())return'Overdue';
+  return n.status||'Open';
+}
+
+const SEV_COL={Critical:'#E24B4A',Major:'#BA7517',Minor:'#1D9E75'};
+const SEV_CLS={Critical:'cu',Major:'cn',Minor:'cpos'};
+
+function renderNcrDash(){
+  const open=ncrs.filter(n=>ncrStatus(n)==='Open').length;
+  const overdue=ncrs.filter(n=>ncrStatus(n)==='Overdue').length;
+  const critical=ncrs.filter(n=>n.severity==='Critical'&&n.status!=='Closed').length;
+  const closed=ncrs.filter(n=>n.status==='Closed').length;
+  const total=ncrs.length;
+  const closureRate=total?Math.round(closed/total*100):0;
+  document.getElementById('ncr-kpi').innerHTML=
+    '<div class="kpi info"><div class="kpi-lb">Total NCRs</div><div class="kpi-val">'+total+'</div></div>'+
+    '<div class="kpi danger"><div class="kpi-lb">Open</div><div class="kpi-val" style="color:var(--re);">'+open+'</div></div>'+
+    '<div class="kpi warning"><div class="kpi-lb">Overdue</div><div class="kpi-val" style="color:var(--am);">'+overdue+'</div></div>'+
+    '<div class="kpi danger"><div class="kpi-lb">Critical Open</div><div class="kpi-val" style="color:var(--re);">'+critical+'</div></div>'+
+    '<div class="kpi success"><div class="kpi-lb">Closed</div><div class="kpi-val" style="color:var(--gr);">'+closed+'</div></div>'+
+    '<div class="kpi success"><div class="kpi-lb">Closure Rate</div><div class="kpi-val" style="color:var(--gr);">'+closureRate+'%</div></div>';
+
+  const cats={};ncrs.forEach(n=>{cats[n.category]=(cats[n.category]||0)+1;});
+  dc('ncrCatC');
+  if(Object.keys(cats).length){
+    charts['ncrCatC']=new Chart(document.getElementById('ncrCatC'),{type:'doughnut',data:{labels:Object.keys(cats),datasets:[{data:Object.values(cats),backgroundColor:['#E24B4A','#BA7517','#185FA5','#1D9E75','#9B1C1C','#6366f1','#14b8a6','#a855f7','#64748b'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{font:{size:10},boxWidth:10}}},responsive:true,maintainAspectRatio:false}});
+  }
+  const sevs={Critical:0,Major:0,Minor:0};ncrs.forEach(n=>{if(sevs[n.severity]!==undefined)sevs[n.severity]++;});
+  dc('ncrSevC');
+  charts['ncrSevC']=new Chart(document.getElementById('ncrSevC'),{type:'bar',data:{labels:['Critical','Major','Minor'],datasets:[{data:[sevs.Critical,sevs.Major,sevs.Minor],backgroundColor:[SEV_COL.Critical,SEV_COL.Major,SEV_COL.Minor],borderRadius:4,borderWidth:0}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1}}},responsive:true,maintainAspectRatio:false}});
+}
+
+function renderNcr(){
+  renderNcrDash();
+  const srch=(document.getElementById('ncr-srch').value||'').toLowerCase();
+  const fst=document.getElementById('ncr-fst').value;
+  const fsv=document.getElementById('ncr-fsv').value;
+  const fil=ncrs.filter(n=>{
+    const s=ncrStatus(n);
+    if(fst&&s!==fst)return false;
+    if(fsv&&n.severity!==fsv)return false;
+    if(srch&&!(n.description||'').toLowerCase().includes(srch)&&!(n.id||'').toLowerCase().includes(srch)&&!(n.site||'').toLowerCase().includes(srch)&&!(n.assignee||'').toLowerCase().includes(srch))return false;
+    return true;
+  });
+  document.getElementById('ncr-tbody').innerHTML=fil.map(n=>{
+    const s=ncrStatus(n);
+    const pCnt=(n.findingPhotos||[]).length+(n.closeoutPhotos||[]).length;
+    const ccnt=(n.closeoutPhotos||[]).length;
+    const barColor=n.closure>=70?'var(--gr)':n.closure>=30?'var(--am)':'var(--re)';
+    return '<tr onclick="openNcrDetail(\''+n.id+'\')" style="'+(s==='Overdue'?'background:rgba(226,75,74,0.05);':'')+'">'+
+      '<td class="obs-id" style="color:var(--or);">'+n.id+'</td>'+
+      '<td style="font-family:monospace;font-size:11px;white-space:nowrap;">'+fmt(n.date)+'</td>'+
+      '<td>'+n.category+'</td>'+
+      '<td><span class="badge '+(SEV_CLS[n.severity]||'')+'">'+n.severity+'</span></td>'+
+      '<td style="font-size:12px;">'+(n.site||'—')+'</td>'+
+      '<td style="font-size:12px;">'+(n.assignee||'—')+'</td>'+
+      '<td style="font-family:monospace;font-size:11px;white-space:nowrap;color:'+(s==='Overdue'?'var(--re)':'var(--mu)')+';">'+fmt(n.due)+'</td>'+
+      '<td><span class="badge '+s.toLowerCase().replace(' ','')+'">'+s+'</span></td>'+
+      '<td><div style="display:flex;align-items:center;gap:6px;min-width:90px;"><div style="flex:1;height:6px;background:var(--bg);border-radius:3px;overflow:hidden;"><div style="width:'+(n.closure||0)+'%;height:100%;background:'+barColor+';"></div></div><span style="font-size:11px;font-family:monospace;min-width:30px;">'+(n.closure||0)+'%</span></div></td>'+
+      '<td><span class="photo-count'+(pCnt?' has':'')+'">📷 '+pCnt+(ccnt?' <span style="color:var(--gr);font-size:10px;">('+ccnt+'c)</span>':'')+'</span></td>'+
+      '<td onclick="event.stopPropagation()" style="white-space:nowrap;">'+
+        '<button class="btn btn-sm" onclick="openNcrDetail(\''+n.id+'\')" style="margin-right:4px;">View</button>'+
+        '<button class="btn btn-sm" onclick="openEditNcr(\''+n.id+'\')">Edit</button>'+
+      '</td></tr>';
+  }).join('')||'<tr><td colspan="11" style="text-align:center;color:var(--mu);padding:32px;">No NCRs match your filters</td></tr>';
+}
+
+function openAddNcr(){
+  editNcrId=null;ncrFindingPhotos=[];ncrCloseoutPhotos=[];
+  document.getElementById('ncr-m-title').textContent='Raise New NCR';
+  document.getElementById('nf-cat').value='PPE';
+  document.getElementById('nf-sev').value='Major';
+  document.getElementById('nf-site').value='';
+  document.getElementById('nf-raised').value='';
+  document.getElementById('nf-desc').value='';
+  document.getElementById('nf-rc').value='';
+  document.getElementById('nf-ca').value='';
+  document.getElementById('nf-asg').value='';
+  document.getElementById('nf-rel').value='';
+  document.getElementById('nf-dt').value=td();
+  document.getElementById('nf-due').value='';
+  document.getElementById('nf-sts').value='Open';
+  document.getElementById('nf-pct').value=0;
+  document.getElementById('nf-cby').value='';
+  document.getElementById('nf-cdt').value='';
+  document.getElementById('nf-pp').innerHTML='';
+  document.getElementById('nf-cpp').innerHTML='';
+  document.getElementById('ncr-del-btn').style.display='none';
+  toggleNcrCloseoutSection();
+  document.getElementById('ncr-modal').style.display='flex';
+}
+
+function openEditNcr(id){
+  const n=ncrs.find(x=>x.id===id);if(!n)return;
+  editNcrId=id;
+  ncrFindingPhotos=[...(n.findingPhotos||[])];
+  ncrCloseoutPhotos=[...(n.closeoutPhotos||[])];
+  document.getElementById('ncr-m-title').textContent='Edit NCR — '+id;
+  document.getElementById('nf-cat').value=n.category||'PPE';
+  document.getElementById('nf-sev').value=n.severity||'Major';
+  document.getElementById('nf-site').value=n.site||'';
+  document.getElementById('nf-raised').value=n.raisedBy||'';
+  document.getElementById('nf-desc').value=n.description||'';
+  document.getElementById('nf-rc').value=n.rootCause||'';
+  document.getElementById('nf-ca').value=n.correctiveAction||'';
+  document.getElementById('nf-asg').value=n.assignee||'';
+  document.getElementById('nf-rel').value=n.relatedObs||'';
+  document.getElementById('nf-dt').value=n.date||'';
+  document.getElementById('nf-due').value=n.due||'';
+  document.getElementById('nf-sts').value=n.status||'Open';
+  document.getElementById('nf-pct').value=n.closure||0;
+  document.getElementById('nf-cby').value=n.closedBy||'';
+  document.getElementById('nf-cdt').value=n.closeDate||'';
+  renderNcrPhotoPreview('nf-pp',ncrFindingPhotos,'finding');
+  renderNcrPhotoPreview('nf-cpp',ncrCloseoutPhotos,'closeout');
+  document.getElementById('ncr-del-btn').style.display='inline-block';
+  toggleNcrCloseoutSection();
+  document.getElementById('ncr-modal').style.display='flex';
+}
+
+function closeNcrModal(){document.getElementById('ncr-modal').style.display='none';}
+
+function toggleNcrCloseoutSection(){
+  const sts=document.getElementById('nf-sts').value;
+  document.getElementById('ncr-closeout-section').style.display=(sts==='Closed'||sts==='Under Review')?'block':'none';
+}
+
+function handleNcrPho(inp,type){
+  const arr=type==='closeout'?ncrCloseoutPhotos:ncrFindingPhotos;
+  const container=type==='closeout'?'nf-cpp':'nf-pp';
+  Array.from(inp.files).forEach(f=>{
+    const r=new FileReader();
+    r.onload=e=>{arr.push(e.target.result);renderNcrPhotoPreview(container,arr,type);};
+    r.readAsDataURL(f);
+  });
+  inp.value='';
+}
+
+function renderNcrPhotoPreview(containerId,arr,type){
+  document.getElementById(containerId).innerHTML=arr.map((u,i)=>
+    '<div class="pth-wrap">'+
+      '<img class="pth" src="'+u+'" onclick="event.stopPropagation();openLightboxFromArr('+JSON.stringify(arr).replace(/"/g,'&quot;')+','+i+')">'+
+      '<div class="pth-del" onclick="event.stopPropagation();removeNcrPhoto(\''+type+'\','+i+')">✕</div>'+
+    '</div>'
+  ).join('');
+}
+
+function removeNcrPhoto(type,idx){
+  if(type==='closeout'){ncrCloseoutPhotos.splice(idx,1);renderNcrPhotoPreview('nf-cpp',ncrCloseoutPhotos,'closeout');}
+  else{ncrFindingPhotos.splice(idx,1);renderNcrPhotoPreview('nf-pp',ncrFindingPhotos,'finding');}
+}
+
+function saveNcr(){
+  const desc=document.getElementById('nf-desc').value.trim();
+  const due=document.getElementById('nf-due').value;
+  const asg=document.getElementById('nf-asg').value.trim();
+  const ca=document.getElementById('nf-ca').value.trim();
+  if(!desc){alert('Please enter a description.');return;}
+  if(!due){alert('Please enter a due date.');return;}
+  if(!asg){alert('Please assign to a person.');return;}
+  if(!ca){alert('Please specify the corrective action required.');return;}
+  const status=document.getElementById('nf-sts').value;
+  const closure=parseInt(document.getElementById('nf-pct').value)||0;
+  const n={
+    id:editNcrId||nxtNcrId(),
+    date:document.getElementById('nf-dt').value||td(),
+    category:document.getElementById('nf-cat').value,
+    severity:document.getElementById('nf-sev').value,
+    site:document.getElementById('nf-site').value,
+    raisedBy:document.getElementById('nf-raised').value,
+    description:desc,
+    rootCause:document.getElementById('nf-rc').value,
+    correctiveAction:ca,
+    assignee:asg,
+    relatedObs:document.getElementById('nf-rel').value,
+    due:due,
+    status:status,
+    closure:status==='Closed'?100:closure,
+    closedBy:document.getElementById('nf-cby').value,
+    closeDate:status==='Closed'?(document.getElementById('nf-cdt').value||td()):'',
+    findingPhotos:[...ncrFindingPhotos],
+    closeoutPhotos:[...ncrCloseoutPhotos],
+  };
+  if(editNcrId){
+    const i=ncrs.findIndex(x=>x.id===editNcrId);ncrs[i]=n;
+    toast('NCR updated');
+  } else {
+    ncrs.unshift(n);
+    toast('NCR raised: '+n.id);
+  }
+  saveNcrs();
+  closeNcrModal();
+  renderNcr();
+}
+
+function deleteNcr(){
+  if(!editNcrId)return;
+  if(!confirm('Delete NCR '+editNcrId+'? This cannot be undone.'))return;
+  ncrs=ncrs.filter(n=>n.id!==editNcrId);
+  saveNcrs();
+  toast('NCR deleted');
+  closeNcrModal();
+  renderNcr();
+}
+
+function openNcrDetail(id){
+  const n=ncrs.find(x=>x.id===id);if(!n)return;
+  const s=ncrStatus(n);
+  const fPh=n.findingPhotos||[];
+  const cPh=n.closeoutPhotos||[];
+  document.getElementById('ncr-det-title').textContent=n.id+' — '+n.category;
+  document.getElementById('ncr-det-edit-btn').onclick=function(){document.getElementById('ncr-detail-modal').style.display='none';openEditNcr(id);};
+  const barColor=n.closure>=70?'var(--gr)':n.closure>=30?'var(--am)':'var(--re)';
+  let html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">'+
+    '<div><span class="flb">Status</span><span class="badge '+s.toLowerCase().replace(' ','')+'">'+s+'</span></div>'+
+    '<div><span class="flb">Severity</span><span class="badge '+(SEV_CLS[n.severity]||'')+'">'+n.severity+'</span></div>'+
+    '<div><span class="flb">Site</span>'+(n.site||'—')+'</div>'+
+    '<div><span class="flb">Assignee</span>'+(n.assignee||'—')+'</div>'+
+    '<div><span class="flb">Raised By</span>'+(n.raisedBy||'—')+'</div>'+
+    '<div><span class="flb">Date Raised</span>'+fmt(n.date)+'</div>'+
+    '<div><span class="flb">Due Date</span><span style="color:'+(s==='Overdue'?'var(--re)':'inherit')+';">'+fmt(n.due)+'</span></div>'+
+    '<div><span class="flb">Closure</span><div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;height:6px;background:var(--bg);border-radius:3px;overflow:hidden;"><div style="width:'+(n.closure||0)+'%;height:100%;background:'+barColor+';"></div></div><span style="font-size:12px;font-family:monospace;">'+(n.closure||0)+'%</span></div></div>'+
+    (n.relatedObs?'<div><span class="flb">Related Obs</span><span class="obs-id" style="color:var(--or);">'+n.relatedObs+'</span></div>':'')+
+    (n.closedBy?'<div><span class="flb">Closed By</span>'+n.closedBy+'</div>':'')+
+    (n.closeDate?'<div><span class="flb">Closed</span>'+fmt(n.closeDate)+'</div>':'')+
+  '</div>'+
+  '<div class="detail-section"><div class="detail-section-title">Non-Conformance Description</div><p style="font-size:13px;">'+n.description+'</p></div>'+
+  (n.rootCause?'<div class="detail-section"><div class="detail-section-title">Root Cause</div><p style="font-size:13px;">'+n.rootCause+'</p></div>':'')+
+  '<div class="detail-section"><div class="detail-section-title">Corrective Action Required</div><p style="font-size:13px;">'+(n.correctiveAction||'—')+'</p></div>'+
+  '<div class="detail-section"><div class="detail-section-title">Finding / Evidence Photos ('+fPh.length+')</div>';
+  if(fPh.length){
+    html+='<div class="detail-photos">'+fPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(fPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+  } else {
+    html+='<p style="font-size:12px;color:var(--mu);">No finding photos uploaded</p>';
+  }
+  html+='</div>';
+  html+='<div class="detail-section" style="border-color:var(--gr);"><div class="detail-section-title" style="color:var(--gr);">Closeout Photos ('+cPh.length+')</div>';
+  if(cPh.length){
+    html+='<div class="detail-photos">'+cPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(cPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+  } else {
+    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded — please add evidence':'Closeout photos will be shown here once the NCR is being reviewed or closed')+'</p>';
+  }
+  html+='</div>';
+  document.getElementById('ncr-det-body').innerHTML=html;
+  document.getElementById('ncr-detail-modal').style.display='flex';
+}
+
+function initNcr(){
+  ncrs=getNcrs();
+}
+
 init();
+initNcr();
 </script>
 </body>
 </html>
