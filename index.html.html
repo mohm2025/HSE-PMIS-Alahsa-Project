@@ -88,7 +88,25 @@ tr:hover td{background:var(--bg);cursor:pointer;}
 .phu{border:2px dashed var(--bdr);border-radius:10px;padding:20px;text-align:center;cursor:pointer;background:var(--bg);}
 .phu:hover{border-color:var(--or);background:var(--orl);}
 .pp{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-.pth{width:68px;height:68px;border-radius:8px;object-fit:cover;border:1px solid var(--bdr);}
+.pth{width:68px;height:68px;border-radius:8px;object-fit:cover;border:1px solid var(--bdr);cursor:pointer;transition:transform .15s;}
+.pth:hover{transform:scale(1.08);}
+.pth-wrap{position:relative;display:inline-block;}
+.pth-del{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:var(--re);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid var(--card);line-height:1;}
+.pth-del:hover{background:#c0392b;}
+.photo-count{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:var(--mu);font-family:monospace;}
+.photo-count.has{color:var(--or);}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.5);}
+.lightbox .lb-close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;cursor:pointer;background:none;border:none;}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:36px;cursor:pointer;background:rgba(0,0,0,0.4);border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+.lightbox .lb-nav.prev{left:16px;}
+.lightbox .lb-nav.next{right:16px;}
+.lightbox .lb-label{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(0,0,0,.5);padding:4px 12px;border-radius:6px;}
+.closeout-section{border:2px dashed var(--gr);border-radius:12px;padding:16px;margin-top:10px;background:var(--grl);}
+.closeout-section .flb{color:var(--gr);}
+.detail-photos{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.detail-section{margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr);}
+.detail-section-title{font-size:11px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;font-family:monospace;}
 .toast{position:fixed;bottom:20px;right:20px;padding:11px 18px;border-radius:10px;font-size:13px;font-weight:500;z-index:999;color:#fff;}
 .toast.s{background:var(--gr);}.toast.e{background:var(--re);}
 .loading{display:flex;align-items:center;justify-content:center;padding:40px;color:var(--mu);font-size:14px;}
@@ -285,7 +303,7 @@ tr:hover td{background:var(--bg);cursor:pointer;}
         </div>
       </div>
       <div id="o-load" class="loading" style="display:none;"><div class="spinner"></div>Loading...</div>
-      <table><thead><tr><th>ID</th><th>Date</th><th>Category</th><th>Description</th><th>Priority</th><th>Status</th><th>Due</th><th>Closed</th><th>Actions</th></tr></thead><tbody id="o-tbody"></tbody></table>
+      <table><thead><tr><th>ID</th><th>Date</th><th>Category</th><th>Description</th><th>Priority</th><th>Status</th><th>Due</th><th>Closed</th><th>Photos</th><th>Actions</th></tr></thead><tbody id="o-tbody"></tbody></table>
     </div>
   </div>
 
@@ -408,19 +426,52 @@ tr:hover td{background:var(--bg);cursor:pointer;}
       </div>
       <div style="height:10px;"></div>
       <div class="fg">
-        <label class="flb">Photos</label>
+        <label class="flb">Observation Photos</label>
         <label class="phu" style="display:block;">
-          <input type="file" id="f-pho" accept="image/*" multiple onchange="handlePho(this)" style="display:none;">
+          <input type="file" id="f-pho" accept="image/*" multiple onchange="handlePho(this,'obs')" style="display:none;">
           <div style="font-size:22px;margin-bottom:6px;">📷</div>
           <div style="font-size:13px;color:var(--mu);">Click to upload observation photos</div>
         </label>
         <div class="pp" id="pp"></div>
+      </div>
+      <div class="closeout-section" id="closeout-section" style="display:none;">
+        <label class="flb" style="margin-bottom:8px;">NCR / Closeout Photos</label>
+        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Upload photos showing the corrective action has been completed</p>
+        <label class="phu" style="display:block;border-color:var(--gr);">
+          <input type="file" id="f-cpho" accept="image/*" multiple onchange="handlePho(this,'closeout')" style="display:none;">
+          <div style="font-size:22px;margin-bottom:6px;">📸</div>
+          <div style="font-size:13px;color:var(--gr);">Click to upload closeout evidence photos</div>
+        </label>
+        <div class="pp" id="cpp"></div>
       </div>
     </div>
     <div class="modal-ft">
       <button class="btn" onclick="closeModal()">Cancel</button>
       <button class="btn btn-p" id="sv-btn" onclick="saveObs()">Save Observation</button>
     </div>
+  </div>
+</div>
+
+<!-- PHOTO LIGHTBOX -->
+<div class="lightbox" id="lightbox" style="display:none;" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-nav prev" onclick="event.stopPropagation();navLightbox(-1)">‹</button>
+  <img id="lb-img" src="" onclick="event.stopPropagation()">
+  <button class="lb-nav next" onclick="event.stopPropagation();navLightbox(1)">›</button>
+  <div class="lb-label" id="lb-label"></div>
+</div>
+
+<!-- OBSERVATION DETAIL MODAL -->
+<div class="modal-ov" id="detail-modal" style="display:none;" onclick="if(event.target===this)document.getElementById('detail-modal').style.display='none'">
+  <div class="modal" style="width:680px;" onclick="event.stopPropagation()">
+    <div class="modal-hd">
+      <div class="modal-t" id="det-title">Observation Detail</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-sm" id="det-edit-btn">Edit</button>
+        <button class="xbtn" onclick="document.getElementById('detail-modal').style.display='none'">✕</button>
+      </div>
+    </div>
+    <div class="modal-bd" id="det-body"></div>
   </div>
 </div>
 
@@ -703,7 +754,7 @@ const SAMPLE = [
 const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const CC={'Unsafe Act':'#E24B4A','Near Miss':'#BA7517','PPE Violation':'#185FA5','Environmental':'#1D9E75','Fire Safety':'#9B1C1C','Positive':'#3B6D11'};
 const CX={'Unsafe Act':'cu','Near Miss':'cn','PPE Violation':'cp','Environmental':'ce','Fire Safety':'cf','Positive':'cpos'};
-let obs=[],editId=null,photos=[],charts={};
+let obs=[],editId=null,photos=[],closeoutPhotos=[],charts={},lbPhotos=[],lbIdx=0;
 
 // ─── INIT ─────────────────────────────────────────────────
 function init(){
@@ -715,10 +766,12 @@ function init(){
     loadData();
   } else {
     obs=[...SAMPLE];
+    loadPhotosLocal();
     renderAll();
     document.getElementById('d-load').style.display='none';
     document.getElementById('d-content').style.display='block';
   }
+  document.getElementById('f-sts').addEventListener('change',toggleCloseoutSection);
 }
 
 function saveApiUrl(){
@@ -765,6 +818,7 @@ async function loadData(){
   const r=await callApi('getAll');
   if(r && r.observations) obs=r.observations;
   else if(!API_URL) obs=[...SAMPLE];
+  loadPhotosLocal();
   document.getElementById('d-load').style.display='none';
   document.getElementById('d-content').style.display='block';
   renderAll();
@@ -825,7 +879,10 @@ function renderObs(){
     return true;
   });
   document.getElementById('o-tbody').innerHTML=fil.map(o=>{const s=cs(o);
-    return '<tr onclick="openEdit(\''+o.id+'\')" style="'+(s==='Overdue'?'background:rgba(186,117,23,0.04);':'')+'">'+
+    const pCnt=(o.photos||[]).length;
+    const cCnt=(o.closeoutPhotos||[]).length;
+    const totalPh=pCnt+cCnt;
+    return '<tr onclick="openDetail(\''+o.id+'\')" style="'+(s==='Overdue'?'background:rgba(186,117,23,0.04);':'')+'">'+
       '<td class="obs-id">'+o.id+'</td>'+
       '<td style="font-family:monospace;font-size:11px;white-space:nowrap;">'+fmt(o.createDate)+'</td>'+
       '<td><span class="badge '+CX[o.category]+'">'+o.category+'</span></td>'+
@@ -834,11 +891,13 @@ function renderObs(){
       '<td><span class="badge '+s.toLowerCase().replace(' ','')+'">'+s+'</span></td>'+
       '<td style="font-family:monospace;font-size:11px;white-space:nowrap;">'+fmt(o.dueDate)+'</td>'+
       '<td style="font-family:monospace;font-size:11px;white-space:nowrap;">'+fmt(o.closeDate)+'</td>'+
+      '<td><span class="photo-count'+(totalPh?' has':'')+'">📷 '+totalPh+(cCnt?' <span style="color:var(--gr);font-size:10px;">('+cCnt+' closeout)</span>':'')+'</span></td>'+
       '<td onclick="event.stopPropagation()" style="white-space:nowrap;">'+
+        '<button class="btn btn-sm" onclick="openDetail(\''+o.id+'\')" style="margin-right:4px;">View</button>'+
         '<button class="btn btn-sm" onclick="openEdit(\''+o.id+'\')" style="margin-right:4px;">Edit</button>'+
         '<button class="btn btn-sm" onclick="delObs(\''+o.id+'\')" style="color:var(--re);border-color:var(--re);">Del</button>'+
       '</td></tr>';
-  }).join('')||'<tr><td colspan="9" style="text-align:center;color:var(--mu);padding:32px;">No observations found</td></tr>';
+  }).join('')||'<tr><td colspan="10" style="text-align:center;color:var(--mu);padding:32px;">No observations found</td></tr>';
 }
 
 function renderAna(){
@@ -888,7 +947,7 @@ function exportCSV(){
 function nxtId(){const mx=obs.reduce((m,o)=>{const n=parseInt(o.id.replace('OBS-',''));return n>m?n:m;},0);return'OBS-'+String(mx+1).padStart(3,'0');}
 
 function openAdd(){
-  editId=null;photos=[];
+  editId=null;photos=[];closeoutPhotos=[];
   document.getElementById('m-title').textContent='New HSE Observation';
   document.getElementById('f-cat').value='Unsafe Act';
   document.getElementById('f-pri').value='High';
@@ -901,12 +960,14 @@ function openAdd(){
   document.getElementById('f-cld').value='';
   document.getElementById('f-sts').value='Open';
   document.getElementById('pp').innerHTML='';
+  document.getElementById('cpp').innerHTML='';
+  toggleCloseoutSection();
   document.getElementById('modal').style.display='flex';
 }
 
 function openEdit(id){
   const o=obs.find(x=>x.id===id);if(!o)return;
-  editId=id;photos=[...(o.photos||[])];
+  editId=id;photos=[...(o.photos||[])];closeoutPhotos=[...(o.closeoutPhotos||[])];
   document.getElementById('m-title').textContent='Edit — '+id;
   document.getElementById('f-cat').value=o.category||'Unsafe Act';
   document.getElementById('f-pri').value=o.priority||'High';
@@ -918,18 +979,131 @@ function openEdit(id){
   document.getElementById('f-dud').value=o.dueDate||'';
   document.getElementById('f-cld').value=o.closeDate||'';
   document.getElementById('f-sts').value=o.status||'Open';
-  document.getElementById('pp').innerHTML=photos.map(u=>'<img class="pth" src="'+u+'">').join('');
+  renderPhotoPreview('pp',photos,'obs');
+  renderPhotoPreview('cpp',closeoutPhotos,'closeout');
+  toggleCloseoutSection();
   document.getElementById('modal').style.display='flex';
 }
 
 function closeModal(){document.getElementById('modal').style.display='none';}
 
-function handlePho(inp){
+function handlePho(inp,type){
+  const arr=type==='closeout'?closeoutPhotos:photos;
+  const container=type==='closeout'?'cpp':'pp';
   Array.from(inp.files).forEach(f=>{
     const r=new FileReader();
-    r.onload=e=>{photos.push(e.target.result);document.getElementById('pp').innerHTML+=('<img class="pth" src="'+e.target.result+'">');};
+    r.onload=e=>{arr.push(e.target.result);renderPhotoPreview(container,arr,type);};
     r.readAsDataURL(f);
   });
+  inp.value='';
+}
+
+function renderPhotoPreview(containerId,arr,type){
+  document.getElementById(containerId).innerHTML=arr.map((u,i)=>
+    '<div class="pth-wrap">'+
+      '<img class="pth" src="'+u+'" onclick="event.stopPropagation();openLightbox(\''+type+'\','+i+')">'+
+      '<div class="pth-del" onclick="event.stopPropagation();removePhoto(\''+type+'\','+i+')">✕</div>'+
+    '</div>'
+  ).join('');
+}
+
+function removePhoto(type,idx){
+  if(type==='closeout'){closeoutPhotos.splice(idx,1);renderPhotoPreview('cpp',closeoutPhotos,'closeout');}
+  else{photos.splice(idx,1);renderPhotoPreview('pp',photos,'obs');}
+}
+
+function toggleCloseoutSection(){
+  const sts=document.getElementById('f-sts').value;
+  document.getElementById('closeout-section').style.display=(sts==='Closed')?'block':'none';
+}
+
+function openLightbox(type,idx){
+  lbPhotos=type==='closeout'?[...closeoutPhotos]:[...photos];
+  if(!lbPhotos.length)return;
+  lbIdx=idx||0;
+  showLbImage();
+  document.getElementById('lightbox').style.display='flex';
+}
+
+function openLightboxFromArr(arr,idx){
+  lbPhotos=[...arr];
+  if(!lbPhotos.length)return;
+  lbIdx=idx||0;
+  showLbImage();
+  document.getElementById('lightbox').style.display='flex';
+}
+
+function showLbImage(){
+  document.getElementById('lb-img').src=lbPhotos[lbIdx];
+  document.getElementById('lb-label').textContent=(lbIdx+1)+' / '+lbPhotos.length;
+}
+
+function navLightbox(dir){
+  lbIdx=(lbIdx+dir+lbPhotos.length)%lbPhotos.length;
+  showLbImage();
+}
+
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+
+function openDetail(id){
+  const o=obs.find(x=>x.id===id);if(!o)return;
+  document.getElementById('det-title').textContent=o.id+' — '+o.category;
+  document.getElementById('det-edit-btn').onclick=function(){document.getElementById('detail-modal').style.display='none';openEdit(id);};
+  const s=cs(o);
+  const obsPh=o.photos||[];
+  const clPh=o.closeoutPhotos||[];
+  let html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">'+
+    '<div><span class="flb">Status</span><span class="badge '+s.toLowerCase().replace(' ','')+'">'+s+'</span></div>'+
+    '<div><span class="flb">Priority</span><span class="pdot '+(o.priority==='High'?'ph':o.priority==='Medium'?'pm':'pl')+'"></span>'+o.priority+'</div>'+
+    '<div><span class="flb">Location</span>'+(o.location||'—')+'</div>'+
+    '<div><span class="flb">Reported by</span>'+(o.reporter||'—')+'</div>'+
+    '<div><span class="flb">Created</span>'+fmt(o.createDate)+'</div>'+
+    '<div><span class="flb">Due date</span>'+fmt(o.dueDate)+'</div>'+
+    (o.closeDate?'<div><span class="flb">Closed</span>'+fmt(o.closeDate)+'</div>':'')+
+  '</div>'+
+  '<div class="detail-section"><div class="detail-section-title">Description</div><p style="font-size:13px;">'+o.description+'</p></div>'+
+  (o.action?'<div class="detail-section"><div class="detail-section-title">Corrective Action</div><p style="font-size:13px;">'+o.action+'</p></div>':'')+
+  '<div class="detail-section"><div class="detail-section-title">Observation Photos ('+obsPh.length+')</div>';
+  if(obsPh.length){
+    html+='<div class="detail-photos">'+obsPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(obsPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+  } else {
+    html+='<p style="font-size:12px;color:var(--mu);">No observation photos uploaded</p>';
+  }
+  html+='</div>';
+  html+='<div class="detail-section" style="border-color:var(--gr);"><div class="detail-section-title" style="color:var(--gr);">NCR / Closeout Photos ('+clPh.length+')</div>';
+  if(clPh.length){
+    html+='<div class="detail-photos">'+clPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(clPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+  } else {
+    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded — please add evidence':'Closeout photos will be available when observation is closed')+'</p>';
+  }
+  html+='</div>';
+  document.getElementById('det-body').innerHTML=html;
+  document.getElementById('detail-modal').style.display='flex';
+}
+
+function savePhotosLocal(){
+  const photoMap={};
+  obs.forEach(o=>{
+    if((o.photos&&o.photos.length)||(o.closeoutPhotos&&o.closeoutPhotos.length)){
+      photoMap[o.id]={photos:o.photos||[],closeoutPhotos:o.closeoutPhotos||[]};
+    }
+  });
+  try{localStorage.setItem('hse_photos',JSON.stringify(photoMap));}catch(e){}
+}
+
+function loadPhotosLocal(){
+  try{
+    const stored=localStorage.getItem('hse_photos');
+    if(stored){
+      const photoMap=JSON.parse(stored);
+      obs.forEach(o=>{
+        if(photoMap[o.id]){
+          o.photos=photoMap[o.id].photos||[];
+          o.closeoutPhotos=photoMap[o.id].closeoutPhotos||[];
+        }
+      });
+    }
+  }catch(e){}
 }
 
 async function saveObs(){
@@ -945,7 +1119,7 @@ async function saveObs(){
     reporter:document.getElementById('f-rep').value,description:des,
     action:document.getElementById('f-act').value,createDate:document.getElementById('f-crd').value,
     dueDate:due,closeDate:document.getElementById('f-cld').value,
-    status:document.getElementById('f-sts').value,photos:photos,
+    status:document.getElementById('f-sts').value,photos:[...photos],closeoutPhotos:[...closeoutPhotos],
     timeline:[...(prev.timeline||[]),editId?'Updated '+td():'Raised '+td()]
   };
   if(API_URL){
@@ -958,6 +1132,7 @@ async function saveObs(){
     if(editId){const i=obs.findIndex(x=>x.id===editId);obs[i]=o;}
     else obs.unshift(o);
     toast(editId?'Updated (offline)':'Saved (offline — connect Google Sheets to persist)');
+    savePhotosLocal();
     renderAll();
   }
   closeModal();
@@ -971,6 +1146,7 @@ async function delObs(id){
     catch(e){toast('Delete failed','e');}
   } else {
     obs=obs.filter(o=>o.id!==id);
+    savePhotosLocal();
     toast('Deleted (offline)');renderAll();
   }
 }
