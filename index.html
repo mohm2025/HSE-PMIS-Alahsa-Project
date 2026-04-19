@@ -1109,7 +1109,12 @@ function openEdit(id){
   document.getElementById('modal').style.display='flex';
 }
 
-function closeModal(){document.getElementById('modal').style.display='none';}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+  editId=null;photos=[];closeoutPhotos=[];
+  document.getElementById('pp').innerHTML='';
+  document.getElementById('cpp').innerHTML='';
+}
 
 function handleObsPhoto(inp){
   Array.from(inp.files).forEach(function(f){
@@ -1459,7 +1464,12 @@ function openEditNcr(id){
   document.getElementById('ncr-modal').style.display='flex';
 }
 
-function closeNcrModal(){document.getElementById('ncr-modal').style.display='none';}
+function closeNcrModal(){
+  document.getElementById('ncr-modal').style.display='none';
+  editNcrId=null;ncrFindingPhotos=[];ncrCloseoutPhotos=[];
+  document.getElementById('nf-pp').innerHTML='';
+  document.getElementById('nf-cpp').innerHTML='';
+}
 
 function toggleNcrCloseoutSection(){
   const sts=document.getElementById('nf-sts').value;
