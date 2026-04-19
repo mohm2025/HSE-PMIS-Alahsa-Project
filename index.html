@@ -1283,7 +1283,36 @@ function getNcrs(){
   localStorage.setItem('hse_ncrs',JSON.stringify(NCR_SAMPLE));
   return [...NCR_SAMPLE];
 }
-function saveNcrs(){localStorage.setItem('hse_ncrs',JSON.stringify(ncrs));}
+function saveNcrs(){
+  var toSave=ncrs.map(function(n){
+    var c=Object.assign({},n);
+    c.findingPhotos=[];c.closeoutPhotos=[];
+    return c;
+  });
+  localStorage.setItem('hse_ncrs',JSON.stringify(toSave));
+  var photoMap={};
+  ncrs.forEach(function(n){
+    if((n.findingPhotos&&n.findingPhotos.length)||(n.closeoutPhotos&&n.closeoutPhotos.length)){
+      photoMap[n.id]={findingPhotos:n.findingPhotos||[],closeoutPhotos:n.closeoutPhotos||[]};
+    }
+  });
+  try{localStorage.setItem('hse_ncr_photos',JSON.stringify(photoMap));}catch(e){}
+}
+
+function loadNcrPhotosLocal(){
+  try{
+    var stored=localStorage.getItem('hse_ncr_photos');
+    if(stored){
+      var photoMap=JSON.parse(stored);
+      ncrs.forEach(function(n){
+        if(photoMap[n.id]){
+          n.findingPhotos=photoMap[n.id].findingPhotos||[];
+          n.closeoutPhotos=photoMap[n.id].closeoutPhotos||[];
+        }
+      });
+    }
+  }catch(e){}
+}
 
 function nxtNcrId(){
   const yr=new Date().getFullYear();
@@ -1434,10 +1463,18 @@ function handleNcrPho(inp,type){
 function renderNcrPhotoPreview(containerId,arr,type){
   document.getElementById(containerId).innerHTML=arr.map((u,i)=>
     '<div class="pth-wrap">'+
-      '<img class="pth" src="'+u+'" onclick="event.stopPropagation();openLightboxFromArr('+JSON.stringify(arr).replace(/"/g,'&quot;')+','+i+')">'+
+      '<img class="pth" src="'+u+'" onclick="event.stopPropagation();openNcrLightbox(\''+type+'\','+i+')">'+
       '<div class="pth-del" onclick="event.stopPropagation();removeNcrPhoto(\''+type+'\','+i+')">✕</div>'+
     '</div>'
   ).join('');
+}
+
+function openNcrLightbox(type,idx){
+  lbPhotos=type==='closeout'?[...ncrCloseoutPhotos]:[...ncrFindingPhotos];
+  if(!lbPhotos.length)return;
+  lbIdx=idx||0;
+  showLbImage();
+  document.getElementById('lightbox').style.display='flex';
 }
 
 function removeNcrPhoto(type,idx){
@@ -1498,11 +1535,13 @@ function deleteNcr(){
   renderNcr();
 }
 
+var detailNcrFindingPh=[],detailNcrCloseoutPh=[];
 function openNcrDetail(id){
   const n=ncrs.find(x=>x.id===id);if(!n)return;
   const s=ncrStatus(n);
   const fPh=n.findingPhotos||[];
   const cPh=n.closeoutPhotos||[];
+  detailNcrFindingPh=[...fPh];detailNcrCloseoutPh=[...cPh];
   document.getElementById('ncr-det-title').textContent=n.id+' — '+n.category;
   document.getElementById('ncr-det-edit-btn').onclick=function(){document.getElementById('ncr-detail-modal').style.display='none';openEditNcr(id);};
   const barColor=n.closure>=70?'var(--gr)':n.closure>=30?'var(--am)':'var(--re)';
@@ -1524,16 +1563,16 @@ function openNcrDetail(id){
   '<div class="detail-section"><div class="detail-section-title">Corrective Action Required</div><p style="font-size:13px;">'+(n.correctiveAction||'—')+'</p></div>'+
   '<div class="detail-section"><div class="detail-section-title">Finding / Evidence Photos ('+fPh.length+')</div>';
   if(fPh.length){
-    html+='<div class="detail-photos">'+fPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(fPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+    html+='<div class="detail-photos">'+fPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrFindingPh,'+i+')">').join('')+'</div>';
   } else {
     html+='<p style="font-size:12px;color:var(--mu);">No finding photos uploaded</p>';
   }
   html+='</div>';
   html+='<div class="detail-section" style="border-color:var(--gr);"><div class="detail-section-title" style="color:var(--gr);">Closeout Photos ('+cPh.length+')</div>';
   if(cPh.length){
-    html+='<div class="detail-photos">'+cPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(cPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
+    html+='<div class="detail-photos">'+cPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrCloseoutPh,'+i+')">').join('')+'</div>';
   } else {
-    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded — please add evidence':'Closeout photos will be shown here once the NCR is being reviewed or closed')+'</p>';
+    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded \u2014 please add evidence':'Closeout photos will be shown here once the NCR is being reviewed or closed')+'</p>';
   }
   html+='</div>';
   document.getElementById('ncr-det-body').innerHTML=html;
@@ -1542,6 +1581,7 @@ function openNcrDetail(id){
 
 function initNcr(){
   ncrs=getNcrs();
+  loadNcrPhotosLocal();
 }
 
 init();
