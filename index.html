@@ -104,6 +104,8 @@ tr:hover td{background:var(--bg);cursor:pointer;}
 .lightbox .lb-label{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(0,0,0,.5);padding:4px 12px;border-radius:6px;}
 .closeout-section{border:2px dashed var(--gr);border-radius:12px;padding:16px;margin-top:10px;background:var(--grl);}
 .closeout-section .flb{color:var(--gr);}
+.open-photo-section{border:2px dashed var(--bl);border-radius:12px;padding:16px;margin-top:10px;background:var(--bll);}
+.open-photo-section .flb{color:var(--bl);}
 .detail-photos{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
 .detail-section{margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr);}
 .detail-section-title{font-size:11px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;font-family:monospace;}
@@ -246,6 +248,10 @@ tr:hover td{background:var(--bg);cursor:pointer;}
   <button class="btn-exp csv" onclick="exportCSV()">
     <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><rect x="1" y="1" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.2"/><path d="M4 4h6M4 7h6M4 10h4" stroke="#185FA5" stroke-width="1.2" stroke-linecap="round"/></svg>
     CSV → Google Sheets
+  </button>
+  <button class="btn-exp" onclick="sendEmailAlert()" style="background:var(--aml);color:var(--am);border-color:var(--am);">
+    <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M1 3h12v8H1zM1 3l6 5 6-5" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Email Alert
   </button>
   <button class="btn-exp" onclick="window.print()" style="margin-left:auto;">
     <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M3 5V2h8v3M3 9H1V5h12v4h-2M3 9v3h8V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -457,22 +463,23 @@ tr:hover td{background:var(--bg);cursor:pointer;}
         <div class="fg" style="margin:0;"><label class="flb">Status</label><select class="fse" id="f-sts"><option>Open</option><option>In Progress</option><option>Closed</option></select></div>
       </div>
       <div style="height:10px;"></div>
-      <div class="fg">
-        <label class="flb">Observation Photos</label>
-        <label class="phu" style="display:block;">
-          <input type="file" id="f-pho" accept="image/*" multiple onchange="handlePho(this,'obs')" style="display:none;">
+      <div class="fg open-photo-section">
+        <label class="flb" style="color:var(--bl);margin-bottom:8px;">🔴 OPEN / Observation Photos</label>
+        <p style="font-size:11px;color:var(--bl);margin-bottom:10px;">Photos of the unsafe condition/act when observation was raised</p>
+        <label class="phu" style="display:block;border-color:var(--bl);background:var(--bll);">
+          <input type="file" id="f-pho" accept="image/*" multiple onchange="handleObsPhoto(this)" style="display:none;">
           <div style="font-size:22px;margin-bottom:6px;">📷</div>
-          <div style="font-size:13px;color:var(--mu);">Click to upload observation photos</div>
+          <div style="font-size:13px;color:var(--bl);">Click to upload <strong>opening/finding</strong> photos</div>
         </label>
         <div class="pp" id="pp"></div>
       </div>
       <div class="closeout-section" id="closeout-section" style="display:none;">
-        <label class="flb" style="margin-bottom:8px;">NCR / Closeout Photos</label>
-        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Upload photos showing the corrective action has been completed</p>
+        <label class="flb" style="margin-bottom:8px;">✅ CLOSEOUT Photos (Proof of Correction)</label>
+        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Photos showing the corrective action has been completed</p>
         <label class="phu" style="display:block;border-color:var(--gr);">
-          <input type="file" id="f-cpho" accept="image/*" multiple onchange="handlePho(this,'closeout')" style="display:none;">
+          <input type="file" id="f-cpho" accept="image/*" multiple onchange="handleObsCloseoutPhoto(this)" style="display:none;">
           <div style="font-size:22px;margin-bottom:6px;">📸</div>
-          <div style="font-size:13px;color:var(--gr);">Click to upload closeout evidence photos</div>
+          <div style="font-size:13px;color:var(--gr);">Click to upload <strong>closeout evidence</strong> photos</div>
         </label>
         <div class="pp" id="cpp"></div>
       </div>
@@ -523,22 +530,23 @@ tr:hover td{background:var(--bg);cursor:pointer;}
         <div class="fg" style="margin:0;"><label class="flb">Closure % (0-100)</label><input type="number" class="fin" id="nf-pct" min="0" max="100" value="0"></div>
       </div>
       <div style="height:10px;"></div>
-      <div class="fg">
-        <label class="flb">Finding / Evidence Photos</label>
-        <label class="phu" style="display:block;">
-          <input type="file" id="nf-pho" accept="image/*" multiple onchange="handleNcrPho(this,'finding')" style="display:none;">
+      <div class="fg open-photo-section">
+        <label class="flb" style="color:var(--bl);margin-bottom:8px;">🔴 OPEN / Finding Photos</label>
+        <p style="font-size:11px;color:var(--bl);margin-bottom:10px;">Photos of the non-conformance when NCR was raised</p>
+        <label class="phu" style="display:block;border-color:var(--bl);background:var(--bll);">
+          <input type="file" id="nf-pho" accept="image/*" multiple onchange="handleNcrFindingPhoto(this)" style="display:none;">
           <div style="font-size:22px;margin-bottom:6px;">📷</div>
-          <div style="font-size:13px;color:var(--mu);">Click to upload evidence of non-conformance</div>
+          <div style="font-size:13px;color:var(--bl);">Click to upload <strong>finding/evidence</strong> photos</div>
         </label>
         <div class="pp" id="nf-pp"></div>
       </div>
       <div class="closeout-section" id="ncr-closeout-section" style="display:none;">
-        <label class="flb" style="margin-bottom:8px;">Closeout Photos (Proof of Correction)</label>
-        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Upload photos showing the non-conformance has been corrected</p>
+        <label class="flb" style="margin-bottom:8px;">✅ CLOSEOUT Photos (Proof of Correction)</label>
+        <p style="font-size:11px;color:var(--gr);margin-bottom:10px;">Photos showing the non-conformance has been corrected</p>
         <label class="phu" style="display:block;border-color:var(--gr);">
-          <input type="file" id="nf-cpho" accept="image/*" multiple onchange="handleNcrPho(this,'closeout')" style="display:none;">
+          <input type="file" id="nf-cpho" accept="image/*" multiple onchange="handleNcrCloseoutPhoto(this)" style="display:none;">
           <div style="font-size:22px;margin-bottom:6px;">📸</div>
-          <div style="font-size:13px;color:var(--gr);">Click to upload closeout evidence</div>
+          <div style="font-size:13px;color:var(--gr);">Click to upload <strong>closeout evidence</strong> photos</div>
         </label>
         <div class="pp" id="nf-cpp"></div>
         <div style="margin-top:10px;"><label class="flb">Closed By</label><input class="fin" id="nf-cby" placeholder="Who verified closure"></div>
@@ -1103,15 +1111,24 @@ function openEdit(id){
 
 function closeModal(){document.getElementById('modal').style.display='none';}
 
-function handlePho(inp,type){
-  const arr=type==='closeout'?closeoutPhotos:photos;
-  const container=type==='closeout'?'cpp':'pp';
-  Array.from(inp.files).forEach(f=>{
+function handleObsPhoto(inp){
+  Array.from(inp.files).forEach(function(f){
     const r=new FileReader();
-    r.onload=e=>{arr.push(e.target.result);renderPhotoPreview(container,arr,type);};
+    r.onload=function(e){photos.push(e.target.result);renderPhotoPreview('pp',photos,'obs');};
     r.readAsDataURL(f);
   });
   inp.value='';
+}
+function handleObsCloseoutPhoto(inp){
+  Array.from(inp.files).forEach(function(f){
+    const r=new FileReader();
+    r.onload=function(e){closeoutPhotos.push(e.target.result);renderPhotoPreview('cpp',closeoutPhotos,'closeout');};
+    r.readAsDataURL(f);
+  });
+  inp.value='';
+}
+function handlePho(inp,type){
+  if(type==='closeout')handleObsCloseoutPhoto(inp);else handleObsPhoto(inp);
 }
 
 function renderPhotoPreview(containerId,arr,type){
@@ -1449,15 +1466,24 @@ function toggleNcrCloseoutSection(){
   document.getElementById('ncr-closeout-section').style.display=(sts==='Closed'||sts==='Under Review')?'block':'none';
 }
 
-function handleNcrPho(inp,type){
-  const arr=type==='closeout'?ncrCloseoutPhotos:ncrFindingPhotos;
-  const container=type==='closeout'?'nf-cpp':'nf-pp';
-  Array.from(inp.files).forEach(f=>{
+function handleNcrFindingPhoto(inp){
+  Array.from(inp.files).forEach(function(f){
     const r=new FileReader();
-    r.onload=e=>{arr.push(e.target.result);renderNcrPhotoPreview(container,arr,type);};
+    r.onload=function(e){ncrFindingPhotos.push(e.target.result);renderNcrPhotoPreview('nf-pp',ncrFindingPhotos,'finding');};
     r.readAsDataURL(f);
   });
   inp.value='';
+}
+function handleNcrCloseoutPhoto(inp){
+  Array.from(inp.files).forEach(function(f){
+    const r=new FileReader();
+    r.onload=function(e){ncrCloseoutPhotos.push(e.target.result);renderNcrPhotoPreview('nf-cpp',ncrCloseoutPhotos,'closeout');};
+    r.readAsDataURL(f);
+  });
+  inp.value='';
+}
+function handleNcrPho(inp,type){
+  if(type==='closeout')handleNcrCloseoutPhoto(inp);else handleNcrFindingPhoto(inp);
 }
 
 function renderNcrPhotoPreview(containerId,arr,type){
@@ -1584,8 +1610,110 @@ function initNcr(){
   loadNcrPhotosLocal();
 }
 
+// ─── EMAIL ALERT SYSTEM ─────────────────────────────────────
+function getRecipientsFromUsers(){
+  var u=getUsers();
+  return u.filter(function(x){return x.active&&(x.role==='admin'||x.role==='manager');}).map(function(x){return x.username+'@safesite.local';}).join(',');
+}
+
+function buildEmailBody(){
+  var today=td();
+  var openObs=obs.filter(function(o){return cs(o)==='Open'||cs(o)==='Overdue';});
+  var overdueObs=obs.filter(function(o){return cs(o)==='Overdue';});
+  var criticalNcrs=ncrs.filter(function(n){return n.severity==='Critical'&&n.status!=='Closed';});
+  var overdueNcrs=ncrs.filter(function(n){return ncrStatus(n)==='Overdue';});
+  var lines=[];
+  lines.push('SAFESITE PMIS - HSE ALERT REPORT');
+  lines.push('Generated: '+new Date().toLocaleString());
+  lines.push('Site: RIYADH-TOWER-01');
+  lines.push('');
+  lines.push('═══════════════════════════════');
+  lines.push('SUMMARY');
+  lines.push('═══════════════════════════════');
+  lines.push('Total Observations: '+obs.length);
+  lines.push('Open: '+openObs.length+' | Overdue: '+overdueObs.length);
+  lines.push('Total NCRs: '+ncrs.length);
+  lines.push('Critical Open: '+criticalNcrs.length+' | Overdue: '+overdueNcrs.length);
+  lines.push('');
+  if(overdueObs.length){
+    lines.push('═══════════════════════════════');
+    lines.push('⚠ OVERDUE OBSERVATIONS');
+    lines.push('═══════════════════════════════');
+    overdueObs.forEach(function(o){
+      lines.push('['+o.id+'] '+o.category+' - '+o.priority);
+      lines.push('  Due: '+fmt(o.dueDate)+' | '+(o.location||'—'));
+      lines.push('  '+o.description);
+      lines.push('');
+    });
+  }
+  if(criticalNcrs.length){
+    lines.push('═══════════════════════════════');
+    lines.push('🚨 CRITICAL NCRs (OPEN)');
+    lines.push('═══════════════════════════════');
+    criticalNcrs.forEach(function(n){
+      lines.push('['+n.id+'] '+n.category);
+      lines.push('  Site: '+n.site+' | Assignee: '+n.assignee);
+      lines.push('  Due: '+fmt(n.due)+' | Closure: '+(n.closure||0)+'%');
+      lines.push('  '+n.description);
+      lines.push('');
+    });
+  }
+  if(overdueNcrs.length){
+    lines.push('═══════════════════════════════');
+    lines.push('⏰ OVERDUE NCRs');
+    lines.push('═══════════════════════════════');
+    overdueNcrs.forEach(function(n){
+      lines.push('['+n.id+'] '+n.severity+' - '+n.category);
+      lines.push('  Due: '+fmt(n.due)+' | Assignee: '+n.assignee);
+      lines.push('  '+n.description);
+      lines.push('');
+    });
+  }
+  lines.push('═══════════════════════════════');
+  lines.push('Please take immediate action on overdue items.');
+  return lines.join('\n');
+}
+
+function sendEmailAlert(){
+  var body=buildEmailBody();
+  var subject='HSE Alert - '+td()+' - SafeSite PMIS';
+  var cur=getCurrentUser();
+  var to=prompt('Enter recipient email(s), comma-separated:',(cur&&cur.username?cur.username+'@safesite.local':''));
+  if(to===null)return;
+  var mailto='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  if(mailto.length>2000){
+    mailto='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body.slice(0,1500)+'\n\n[Report truncated - open SafeSite PMIS for full details]');
+  }
+  window.location.href=mailto;
+  toast('Opening email client...');
+  if(API_URL){
+    try{
+      fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sendAlert',to:to,subject:subject,body:body})});
+    }catch(e){}
+  }
+}
+
+function checkAlertsOnLoad(){
+  setTimeout(function(){
+    var overdueObs=obs.filter(function(o){return cs(o)==='Overdue';}).length;
+    var criticalNcrs=ncrs.filter(function(n){return n.severity==='Critical'&&n.status!=='Closed';}).length;
+    var overdueNcrs=ncrs.filter(function(n){return ncrStatus(n)==='Overdue';}).length;
+    var total=overdueObs+criticalNcrs+overdueNcrs;
+    if(total>0){
+      var msg='⚠ '+total+' alert(s): '+overdueObs+' overdue obs, '+criticalNcrs+' critical NCRs, '+overdueNcrs+' overdue NCRs';
+      var el=document.createElement('div');
+      el.className='toast e';el.style.cursor='pointer';
+      el.textContent=msg+' — click to send email';
+      el.onclick=function(){el.remove();sendEmailAlert();};
+      document.body.appendChild(el);
+      setTimeout(function(){if(el.parentNode)el.remove();},8000);
+    }
+  },1500);
+}
+
 init();
 initNcr();
+checkAlertsOnLoad();
 </script>
 </body>
 </html>
