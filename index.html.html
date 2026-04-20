@@ -1152,7 +1152,7 @@ function removePhoto(type,idx){
 
 function toggleCloseoutSection(){
   const sts=document.getElementById('f-sts').value;
-  document.getElementById('closeout-section').style.display=(sts==='Closed')?'block':'none';
+  document.getElementById('closeout-section').style.display=(sts==='Closed'||sts==='In Progress')?'block':'none';
 }
 
 function openLightbox(type,idx){
@@ -1183,6 +1183,7 @@ function navLightbox(dir){
 
 function closeLightbox(){document.getElementById('lightbox').style.display='none';}
 
+var detailObsOpenPh=[],detailObsCloseoutPh=[];
 function openDetail(id){
   const o=obs.find(x=>x.id===id);if(!o)return;
   document.getElementById('det-title').textContent=o.id+' — '+o.category;
@@ -1190,6 +1191,7 @@ function openDetail(id){
   const s=cs(o);
   const obsPh=o.photos||[];
   const clPh=o.closeoutPhotos||[];
+  detailObsOpenPh=[...obsPh];detailObsCloseoutPh=[...clPh];
   let html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">'+
     '<div><span class="flb">Status</span><span class="badge '+s.toLowerCase().replace(' ','')+'">'+s+'</span></div>'+
     '<div><span class="flb">Priority</span><span class="pdot '+(o.priority==='High'?'ph':o.priority==='Medium'?'pm':'pl')+'"></span>'+o.priority+'</div>'+
@@ -1201,20 +1203,23 @@ function openDetail(id){
   '</div>'+
   '<div class="detail-section"><div class="detail-section-title">Description</div><p style="font-size:13px;">'+o.description+'</p></div>'+
   (o.action?'<div class="detail-section"><div class="detail-section-title">Corrective Action</div><p style="font-size:13px;">'+o.action+'</p></div>':'')+
-  '<div class="detail-section"><div class="detail-section-title">Observation Photos ('+obsPh.length+')</div>';
-  if(obsPh.length){
-    html+='<div class="detail-photos">'+obsPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(obsPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
-  } else {
-    html+='<p style="font-size:12px;color:var(--mu);">No observation photos uploaded</p>';
-  }
-  html+='</div>';
-  html+='<div class="detail-section" style="border-color:var(--gr);"><div class="detail-section-title" style="color:var(--gr);">NCR / Closeout Photos ('+clPh.length+')</div>';
-  if(clPh.length){
-    html+='<div class="detail-photos">'+clPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr('+JSON.stringify(clPh).replace(/"/g,'&quot;')+','+i+')">').join('')+'</div>';
-  } else {
-    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded — please add evidence':'Closeout photos will be available when observation is closed')+'</p>';
-  }
-  html+='</div>';
+  '<div class="detail-section">'+
+    '<div class="detail-section-title" style="margin-bottom:12px;">Photo Comparison: OPEN vs CLOSEOUT</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">'+
+      '<div style="border:2px solid var(--bl);border-radius:12px;padding:14px;background:var(--bll);">'+
+        '<div style="font-size:12px;font-weight:700;color:var(--bl);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;">🔴 OPEN / Finding ('+obsPh.length+')</div>'+
+        (obsPh.length?
+          '<div class="detail-photos">'+obsPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailObsOpenPh,'+i+')">').join('')+'</div>'
+          :'<p style="font-size:12px;color:var(--bl);">No observation photos uploaded</p>')+
+      '</div>'+
+      '<div style="border:2px solid var(--gr);border-radius:12px;padding:14px;background:var(--grl);">'+
+        '<div style="font-size:12px;font-weight:700;color:var(--gr);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;">✅ CLOSEOUT ('+clPh.length+')</div>'+
+        (clPh.length?
+          '<div class="detail-photos">'+clPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailObsCloseoutPh,'+i+')">').join('')+'</div>'
+          :'<p style="font-size:12px;color:var(--gr);">'+(s==='Closed'?'No closeout photos uploaded \u2014 please add evidence':'Closeout photos appear here when observation is closed')+'</p>')+
+      '</div>'+
+    '</div>'+
+  '</div>';
   document.getElementById('det-body').innerHTML=html;
   document.getElementById('detail-modal').style.display='flex';
 }
@@ -1597,20 +1602,23 @@ function openNcrDetail(id){
   '<div class="detail-section"><div class="detail-section-title">Non-Conformance Description</div><p style="font-size:13px;">'+n.description+'</p></div>'+
   (n.rootCause?'<div class="detail-section"><div class="detail-section-title">Root Cause</div><p style="font-size:13px;">'+n.rootCause+'</p></div>':'')+
   '<div class="detail-section"><div class="detail-section-title">Corrective Action Required</div><p style="font-size:13px;">'+(n.correctiveAction||'—')+'</p></div>'+
-  '<div class="detail-section"><div class="detail-section-title">Finding / Evidence Photos ('+fPh.length+')</div>';
-  if(fPh.length){
-    html+='<div class="detail-photos">'+fPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrFindingPh,'+i+')">').join('')+'</div>';
-  } else {
-    html+='<p style="font-size:12px;color:var(--mu);">No finding photos uploaded</p>';
-  }
-  html+='</div>';
-  html+='<div class="detail-section" style="border-color:var(--gr);"><div class="detail-section-title" style="color:var(--gr);">Closeout Photos ('+cPh.length+')</div>';
-  if(cPh.length){
-    html+='<div class="detail-photos">'+cPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrCloseoutPh,'+i+')">').join('')+'</div>';
-  } else {
-    html+='<p style="font-size:12px;color:var(--mu);">'+(s==='Closed'?'No closeout photos uploaded \u2014 please add evidence':'Closeout photos will be shown here once the NCR is being reviewed or closed')+'</p>';
-  }
-  html+='</div>';
+  '<div class="detail-section">'+
+    '<div class="detail-section-title" style="margin-bottom:12px;">Photo Comparison: OPEN vs CLOSEOUT</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">'+
+      '<div style="border:2px solid var(--bl);border-radius:12px;padding:14px;background:var(--bll);">'+
+        '<div style="font-size:12px;font-weight:700;color:var(--bl);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;">🔴 OPEN / Finding ('+fPh.length+')</div>'+
+        (fPh.length?
+          '<div class="detail-photos">'+fPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrFindingPh,'+i+')">').join('')+'</div>'
+          :'<p style="font-size:12px;color:var(--bl);">No finding photos uploaded</p>')+
+      '</div>'+
+      '<div style="border:2px solid var(--gr);border-radius:12px;padding:14px;background:var(--grl);">'+
+        '<div style="font-size:12px;font-weight:700;color:var(--gr);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;">✅ CLOSEOUT ('+cPh.length+')</div>'+
+        (cPh.length?
+          '<div class="detail-photos">'+cPh.map((u,i)=>'<img class="pth" src="'+u+'" onclick="openLightboxFromArr(detailNcrCloseoutPh,'+i+')">').join('')+'</div>'
+          :'<p style="font-size:12px;color:var(--gr);">'+(s==='Closed'?'No closeout photos uploaded \u2014 please add evidence':'Closeout photos appear here when NCR is closed')+'</p>')+
+      '</div>'+
+    '</div>'+
+  '</div>';
   document.getElementById('ncr-det-body').innerHTML=html;
   document.getElementById('ncr-detail-modal').style.display='flex';
 }
