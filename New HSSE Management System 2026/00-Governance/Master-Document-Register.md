@@ -40,6 +40,11 @@
 | 01-DAN-PRC-HSE-000033-ELECT | Electrical Safety | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000034-LOTO | Lockout / Tagout (LOTO) | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000035-MVEQ | Motor Vehicles and Equipment | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000036-MEWP | Aerial Lifts / Mobile Elevated Work Platforms (MEWP) | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000037-RODWRK | Road Works | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000038-MNLHAD | Manual Handling | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000039-MCHNGR | Machine Guarding | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000040-HNDPOWR | Hand Tools and Power Tools | Procedure | R01 | Issued | 06-Operations |
 
 > Sequence 000016 is not yet issued (reserved).
 

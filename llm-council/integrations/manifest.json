@@ -271,6 +271,46 @@
       "short": "DCSM — Motor Vehicles and Equipment",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000035MVEQ__Jun_2026_REV01_Motor_Vehicles_and_Equipment.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "MEWP",
+      "docno": "01-DAN-PRC-HSE-000036-MEWP",
+      "title": "Aerial Lifts / Mobile Elevated Work Platforms (MEWP)",
+      "short": "DCSM — Aerial Lifts / MEWP",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000036MEWP__Jun_2026_REV01_Aerial_Lifts_MEWP.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "RODWRK",
+      "docno": "01-DAN-PRC-HSE-000037-RODWRK",
+      "title": "Road Works",
+      "short": "DCSM — Road Works",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000037RODWRK__Jun_2026_REV01_Road_Works.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "MNLHAD",
+      "docno": "01-DAN-PRC-HSE-000038-MNLHAD",
+      "title": "Manual Handling",
+      "short": "DCSM — Manual Handling",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000038MNLHAD__Jun_2026_REV01_Manual_Handling.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "MCHNGR",
+      "docno": "01-DAN-PRC-HSE-000039-MCHNGR",
+      "title": "Machine Guarding",
+      "short": "DCSM — Machine Guarding",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000039MCHNGR__Jun_2026_REV01_Machine_Guarding.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "HNDPOWR",
+      "docno": "01-DAN-PRC-HSE-000040-HNDPOWR",
+      "title": "Hand Tools and Power Tools",
+      "short": "DCSM — Hand and Power Tools",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000040HNDPOWR__Jun_2026_REV01_Hand_Tools_and_Power_Tools.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }
