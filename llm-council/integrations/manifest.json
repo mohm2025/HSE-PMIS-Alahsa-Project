@@ -2,123 +2,163 @@
   "documents": [
     {
       "code": "GEN",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000001-GEN",
+      "docno": "01-DAN-PRC-HSE-000001-GEN",
       "title": "DAN Construction Safety Manual (DCSM) — General Requirements",
       "short": "DCSM — General Requirements",
-      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000001GEN__Jun_2026_REV00_GENERAL.docx",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000001GEN__Jun_2026_REV01_GENERAL.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
     },
     {
       "code": "PSHEP",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000002-PSHEP",
+      "docno": "01-DAN-PRC-HSE-000002-PSHEP",
       "title": "Specification for Contractor Project-Specific SH&E Plan (PSHEP)",
       "short": "DCSM — Contractor PSHEP Specification",
-      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000002PSHEP__Jun_2026_REV00_PROJECT_SPECIFIC_SHE_PLAN.docx",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000002PSHEP__Jun_2026_REV01_PROJECT_SPECIFIC_SHE_PLAN.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
     },
     {
       "code": "CEMP",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000003-CEMP",
+      "docno": "01-DAN-PRC-HSE-000003-CEMP",
       "title": "Construction Environmental Management Plan (CEMP)",
       "short": "DCSM — Construction Environmental Management Plan",
-      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000003CEMP__Jun_2026_REV00_CONSTRUCTION_ENVIRONMENTAL_PLAN.docx",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000003CEMP__Jun_2026_REV01_CONSTRUCTION_ENVIRONMENTAL_PLAN.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
     },
     {
       "code": "QULF",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000004-QULF",
+      "docno": "01-DAN-PRC-HSE-000004-QULF",
       "title": "Qualification Requirements for Contractor SH&E Personnel",
       "short": "DCSM — SH&E Personnel Qualifications",
-      "source": "New HSSE Management System 2026/05-Support/01000001000000DANPRCHSE000004QULF__Jun_2026_REV00_CONTRACTOR_HSE_QUALIFCATION.docx",
+      "source": "New HSSE Management System 2026/05-Support/01-DAN-PRC-HSE-000004QULF__Jun_2026_REV01_CONTRACTOR_HSE_QUALIFCATION.docx",
       "out_folder": "New HSSE Management System 2026/05-Support"
     },
     {
       "code": "MTNG",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000005-MTNG",
+      "docno": "01-DAN-PRC-HSE-000005-MTNG",
       "title": "Pre-Construction Meeting — Agenda Requirements",
       "short": "DCSM — Pre-Construction Meeting Agenda",
-      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000005MTNG__Jun_2026_REV00_MEETING_AGENDA_HSE.docx",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000005MTNG__Jun_2026_REV01_MEETING_AGENDA_HSE.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
     },
     {
       "code": "RSKMNG",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000006-RSKMNG",
+      "docno": "01-DAN-PRC-HSE-000006-RSKMNG",
       "title": "SH&E Risk Management",
       "short": "DCSM — SH&E Risk Management",
-      "source": "New HSSE Management System 2026/04-Risk-Management/01000001000000DANPRCHSE000006RSKMNG_Jun_2026_REV00_RISK_MANAGEMENT.docx",
+      "source": "New HSSE Management System 2026/04-Risk-Management/01-DAN-PRC-HSE-000006RSKMNG__Jun_2026_REV01_RISK_MANAGEMENT.docx",
       "out_folder": "New HSSE Management System 2026/04-Risk-Management"
     },
     {
       "code": "AHA",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000007-AHA",
+      "docno": "01-DAN-PRC-HSE-000007-AHA",
       "title": "Activity Hazard Analysis (AHA)",
       "short": "DCSM — Activity Hazard Analysis",
-      "source": "New HSSE Management System 2026/04-Risk-Management/01000001000000DANPRCHSE000007AHA_Jun_2026_REV00_ACTIVITY_HAZARDS_ANALYSIS.docx",
+      "source": "New HSSE Management System 2026/04-Risk-Management/01-DAN-PRC-HSE-000007AHA__Jun_2026_REV01_ACTIVITY_HAZARDS_ANALYSIS.docx",
       "out_folder": "New HSSE Management System 2026/04-Risk-Management"
     },
     {
       "code": "HZCOM",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000008-HZCOM",
+      "docno": "01-DAN-PRC-HSE-000008-HZCOM",
       "title": "Hazard Communication",
       "short": "DCSM — Hazard Communication",
-      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000008HZCOM_Jun_2026_REV00_HAZARD_COMMUNICATION.docx",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000008HZCOM__Jun_2026_REV01_HAZARD_COMMUNICATION.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
     },
     {
       "code": "TRNG",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000009-TRNG",
+      "docno": "01-DAN-PRC-HSE-000009-TRNG",
       "title": "SH&E Training",
       "short": "DCSM — SH&E Training",
-      "source": "New HSSE Management System 2026/05-Support/01000001000000DANPRCHSE000009TRNG_Jun_2026_REV00_TRAINING.docx",
+      "source": "New HSSE Management System 2026/05-Support/01-DAN-PRC-HSE-000009TRNG__Jun_2026_REV01_TRAINING.docx",
       "out_folder": "New HSSE Management System 2026/05-Support"
     },
     {
       "code": "TMPWRK",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000010-TMPWRK",
+      "docno": "01-DAN-PRC-HSE-000010-TMPWRK",
       "title": "Temporary Suspension of Work Notice",
       "short": "DCSM — Temporary Suspension of Work",
-      "source": "New HSSE Management System 2026/10-Continual-Improvement/01000001000000DANPRCHSE000010TMPWRK_Jun_2026_REV00_Temporary_Suspension_of_Work_Notice.docx",
+      "source": "New HSSE Management System 2026/10-Continual-Improvement/01-DAN-PRC-HSE-000010TMPWRK__Jun_2026_REV01_Temporary_Suspension_of_Work_Notice.docx",
       "out_folder": "New HSSE Management System 2026/10-Continual-Improvement"
     },
     {
       "code": "MPSR",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000011-MPSR",
+      "docno": "01-DAN-PRC-HSE-000011-MPSR",
       "title": "Monthly SH&E Performance Statistical Report",
       "short": "DCSM — Monthly SH&E Performance Report",
-      "source": "New HSSE Management System 2026/08-Performance-Evaluation/01000001000000DANPRCHSE000011MPSR_Jun_2026_REV00_Monthly_SHE_Performance_Statistical_Report.docx",
+      "source": "New HSSE Management System 2026/08-Performance-Evaluation/01-DAN-PRC-HSE-000011MPSR__Jun_2026_REV01_Monthly_SHE_Performance_Statistical_Report.docx",
       "out_folder": "New HSSE Management System 2026/08-Performance-Evaluation"
     },
     {
       "code": "ACCRPT",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000012-ACCRPT",
+      "docno": "01-DAN-PRC-HSE-000012-ACCRPT",
       "title": "Accident / Incident Reporting and Investigation",
       "short": "DCSM — Accident / Incident Reporting",
-      "source": "New HSSE Management System 2026/09-Incident-Management/01000001000000DANPRCHSE000012ACCRPT_Jun_2026_REV00_ACCIDENT__INCIDENT_REPORTING_AND_INVESTIGATION.docx",
+      "source": "New HSSE Management System 2026/09-Incident-Management/01-DAN-PRC-HSE-000012ACCRPT__Jun_2026_REV01_ACCIDENT__INCIDENT_REPORTING_AND_INVESTIGATION.docx",
       "out_folder": "New HSSE Management System 2026/09-Incident-Management"
     },
     {
       "code": "ERP",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000013-ERP",
+      "docno": "01-DAN-PRC-HSE-000013-ERP",
       "title": "Emergency Planning and Response",
       "short": "DCSM — Emergency Planning and Response",
-      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000013ERP_Jun_2026_REV00_Emergency_Planning_and_Response.docx",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01-DAN-PRC-HSE-000013ERP__Jun_2026_REV01_Emergency_Planning_and_Response.docx",
       "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
     },
     {
       "code": "FAC",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000014-FAC",
+      "docno": "01-DAN-PRC-HSE-000014-FAC",
       "title": "First Aid",
       "short": "DCSM — First Aid",
-      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000014FAC_Jun_2026_REV00_First_aid.docx",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01-DAN-PRC-HSE-000014FAC__Jun_2026_REV01_First_aid.docx",
       "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
     },
     {
       "code": "AED",
-      "docno": "01-000001-000000-DAN-PRC-HSE-000015-AED",
+      "docno": "01-DAN-PRC-HSE-000015-AED",
       "title": "Automated External Defibrillator (AED)",
       "short": "DCSM — Automated External Defibrillator",
-      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000015AED_Jun_2026_REV00_Automatic_External_Defibrillator.docx",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01-DAN-PRC-HSE-000015AED__Jun_2026_REV01_Automatic_External_Defibrillator.docx",
       "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
+    },
+    {
+      "code": "PPE",
+      "docno": "01-DAN-PRC-HSE-000017-PPE",
+      "title": "Personal Protective Equipment (PPE)",
+      "short": "DCSM — Personal Protective Equipment",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000017PPE__Jun_2026_REV01_Personal_Protective_Equipment_PPE.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "COSHH",
+      "docno": "01-DAN-PRC-HSE-000018-COSHH",
+      "title": "Materials Handling / Storage and Control of Substances Hazardous to Health (COSHH)",
+      "short": "DCSM — Materials Handling & COSHH",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000018COSHH__Jun_2026_REV01_Material_HandlingStorage_and_control_of_COSHH.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "PTW",
+      "docno": "01-DAN-PRC-HSE-000019-PTW",
+      "title": "Permit to Work (PTW)",
+      "short": "DCSM — Permit to Work",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000019PTW__Jun_2026_REV01_PERMIT_TO_WORK_PTW.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "FIRPRT",
+      "docno": "01-DAN-PRC-HSE-000020-FIRPRT",
+      "title": "Fire Protection and Prevention",
+      "short": "DCSM — Fire Protection and Prevention",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000020FIRPRT__Jun_2026_REV01_Fire_Protection_and_Prevention.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "TRFCNT",
+      "docno": "01-DAN-PRC-HSE-000021-TRFCNT",
+      "title": "Signage, Barrication and Traffic Control",
+      "short": "DCSM — Signage, Barrication & Traffic Control",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000021TRFCNT__Jun_2026_REV01_Sinages_Barrication_and_Traffic_Control.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }
