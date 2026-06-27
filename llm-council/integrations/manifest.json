@@ -191,6 +191,46 @@
       "short": "DCSM — Scaffolding",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000025SCFF__Jun_2026_REV01_Scaffolding.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "WALK",
+      "docno": "01-DAN-PRC-HSE-000026-WALK",
+      "title": "Walking / Working Surfaces",
+      "short": "DCSM — Walking / Working Surfaces",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000026WALK__Jun_2026_REV01_Walking_Working_Surfaces.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "CRANES",
+      "docno": "01-DAN-PRC-HSE-000027-CRANES",
+      "title": "Cranes and Hoists",
+      "short": "DCSM — Cranes and Hoists",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000027CRANES__Jun_2026_REV01_Cranes_and_Hoists.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "LFTRIGG",
+      "docno": "01-DAN-PRC-HSE-000028-LFTRIGG",
+      "title": "Lifting, Rigging and Slings — Hardware",
+      "short": "DCSM — Lifting, Rigging and Slings",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000028LFTRIGG__Jun_2026_REV01_LiftingRiggingSlings.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "EXCV",
+      "docno": "01-DAN-PRC-HSE-000029-EXCV",
+      "title": "Excavations, Shoring and Backfilling",
+      "short": "DCSM — Excavations, Shoring and Backfilling",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000029EXCV__Jun_2026_REV01_Excavation_Shoring_and_Backfilling.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "UNDRGROND",
+      "docno": "01-DAN-PRC-HSE-000030-UNDRGROND",
+      "title": "Underground Construction",
+      "short": "DCSM — Underground Construction",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000030UNDRGROND__Jun_2026_REV01_UNDERGROUND_CONSTRUCTION.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }

@@ -30,6 +30,11 @@
 | 01-DAN-PRC-HSE-000023-FALLPRT | Fall Protection and Prevention — Working at Height | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000024-LDR | Ladders | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000025-SCFF | Scaffolding | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000026-WALK | Walking / Working Surfaces | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000027-CRANES | Cranes and Hoists | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000028-LFTRIGG | Lifting, Rigging and Slings — Hardware | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000029-EXCV | Excavations, Shoring and Backfilling | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000030-UNDRGROND | Underground Construction | Procedure | R01 | Issued | 06-Operations |
 
 > Sequence 000016 is not yet issued (reserved).
 
