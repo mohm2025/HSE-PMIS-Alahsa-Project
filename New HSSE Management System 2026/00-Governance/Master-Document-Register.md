@@ -35,6 +35,11 @@
 | 01-DAN-PRC-HSE-000028-LFTRIGG | Lifting, Rigging and Slings — Hardware | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000029-EXCV | Excavations, Shoring and Backfilling | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000030-UNDRGROND | Underground Construction | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000031-PILING | Piling Operations and Cofferdams | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000032-CONFSP | Confined Spaces | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000033-ELECT | Electrical Safety | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000034-LOTO | Lockout / Tagout (LOTO) | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000035-MVEQ | Motor Vehicles and Equipment | Procedure | R01 | Issued | 06-Operations |
 
 > Sequence 000016 is not yet issued (reserved).
 

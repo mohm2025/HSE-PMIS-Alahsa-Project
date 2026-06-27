@@ -231,6 +231,46 @@
       "short": "DCSM — Underground Construction",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000030UNDRGROND__Jun_2026_REV01_UNDERGROUND_CONSTRUCTION.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "PILING",
+      "docno": "01-DAN-PRC-HSE-000031-PILING",
+      "title": "Piling Operations and Cofferdams",
+      "short": "DCSM — Piling Operations and Cofferdams",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000031PILING__Jun_2026_REV01_Piling_Operations_and_Cofferdams.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "CONFSP",
+      "docno": "01-DAN-PRC-HSE-000032-CONFSP",
+      "title": "Confined Spaces",
+      "short": "DCSM — Confined Spaces",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000032CONFSP__Jun_2026_REV01_Confined_Spaces.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "ELECT",
+      "docno": "01-DAN-PRC-HSE-000033-ELECT",
+      "title": "Electrical Safety",
+      "short": "DCSM — Electrical Safety",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000033ELECT__Jun_2026_REV01_Electrical_Safety.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "LOTO",
+      "docno": "01-DAN-PRC-HSE-000034-LOTO",
+      "title": "Lockout / Tagout (LOTO)",
+      "short": "DCSM — Lockout / Tagout",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000034LOTO__Jun_2026_REV01_Lockout_Tagout.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "MVEQ",
+      "docno": "01-DAN-PRC-HSE-000035-MVEQ",
+      "title": "Motor Vehicles and Equipment",
+      "short": "DCSM — Motor Vehicles and Equipment",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000035MVEQ__Jun_2026_REV01_Motor_Vehicles_and_Equipment.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }
