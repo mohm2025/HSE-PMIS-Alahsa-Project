@@ -45,6 +45,11 @@
 | 01-DAN-PRC-HSE-000038-MNLHAD | Manual Handling | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000039-MCHNGR | Machine Guarding | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000040-HNDPOWR | Hand Tools and Power Tools | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000041-LONWRK | Remote and / or Lone Working | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000042-STLEREC | Steel Erection | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000043-HTWRK | Hot Works — Welding, Cutting and Brazing | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000044-BLST | Blasting | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000045-CONCTCON | Concrete and Masonry Construction | Procedure | R01 | Issued | 06-Operations |
 
 > Sequence 000016 is not yet issued (reserved).
 

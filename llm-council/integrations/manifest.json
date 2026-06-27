@@ -311,6 +311,46 @@
       "short": "DCSM — Hand and Power Tools",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000040HNDPOWR__Jun_2026_REV01_Hand_Tools_and_Power_Tools.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "LONWRK",
+      "docno": "01-DAN-PRC-HSE-000041-LONWRK",
+      "title": "Remote and / or Lone Working",
+      "short": "DCSM — Remote / Lone Working",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000041LONWRK__Jun_2026_REV01_Remote_and_Lone_Working.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "STLEREC",
+      "docno": "01-DAN-PRC-HSE-000042-STLEREC",
+      "title": "Steel Erection",
+      "short": "DCSM — Steel Erection",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000042STLEREC__Jun_2026_REV01_Steel_Erection.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "HTWRK",
+      "docno": "01-DAN-PRC-HSE-000043-HTWRK",
+      "title": "Hot Works — Welding, Cutting and Brazing",
+      "short": "DCSM — Hot Works",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000043HTWRK__Jun_2026_REV01_Hot_Works.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "BLST",
+      "docno": "01-DAN-PRC-HSE-000044-BLST",
+      "title": "Blasting",
+      "short": "DCSM — Blasting",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000044BLST__Jun_2026_REV01_Blasting.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "CONCTCON",
+      "docno": "01-DAN-PRC-HSE-000045-CONCTCON",
+      "title": "Concrete and Masonry Construction",
+      "short": "DCSM — Concrete & Masonry",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000045CONCTCON__Jun_2026_REV01_Concrete_and_Masonry_Construction.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }
