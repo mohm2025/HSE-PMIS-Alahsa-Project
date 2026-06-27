@@ -50,6 +50,11 @@
 | 01-DAN-PRC-HSE-000043-HTWRK | Hot Works — Welding, Cutting and Brazing | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000044-BLST | Blasting | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000045-CONCTCON | Concrete and Masonry Construction | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000046-COMPGAS | Compressed Gas Cylinders | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000047-PNTCOT | Painting and Coating | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000048-NHTWRK | Night Work | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000049-WASTMGT | Waste Management | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000050-GLOSSARY | Glossary of Terms and Definitions | Reference | R01 | Issued | 00-Governance |
 
 > Sequence 000016 is not yet issued (reserved).
 

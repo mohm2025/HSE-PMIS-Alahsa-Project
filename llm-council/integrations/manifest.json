@@ -351,6 +351,46 @@
       "short": "DCSM — Concrete & Masonry",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000045CONCTCON__Jun_2026_REV01_Concrete_and_Masonry_Construction.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "COMPGAS",
+      "docno": "01-DAN-PRC-HSE-000046-COMPGAS",
+      "title": "Compressed Gas Cylinders",
+      "short": "DCSM — Compressed Gas Cylinders",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000046COMPGAS__Jun_2026_REV01_Compressed_Gas_Cylinders.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "PNTCOT",
+      "docno": "01-DAN-PRC-HSE-000047-PNTCOT",
+      "title": "Painting and Coating",
+      "short": "DCSM — Painting and Coating",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000047PNTCOT__Jun_2026_REV01_Painting_and_Coating.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "NHTWRK",
+      "docno": "01-DAN-PRC-HSE-000048-NHTWRK",
+      "title": "Night Work",
+      "short": "DCSM — Night Work",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000048NHTWRK__Jun_2026_REV01_Night_Work.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "WASTMGT",
+      "docno": "01-DAN-PRC-HSE-000049-WASTMGT",
+      "title": "Waste Management",
+      "short": "DCSM — Waste Management",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000049WASTMGT__Jun_2026_REV01_Waste_Management.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "GLOSSARY",
+      "docno": "01-DAN-PRC-HSE-000050-GLOSSARY",
+      "title": "Glossary of Terms and Definitions",
+      "short": "HSSE MS — Glossary",
+      "source": "New HSSE Management System 2026/00-Governance/01-DAN-PRC-HSE-000050GLOSSARY__Jun_2026_REV01_Glossary.docx",
+      "out_folder": "New HSSE Management System 2026/00-Governance"
     }
   ]
 }
