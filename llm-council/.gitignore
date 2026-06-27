@@ -11,3 +11,7 @@ dist/
 
 # Conversation data (runtime)
 data/conversations/*.json
+
+# Integration build artifacts
+integrations/build/*
+!integrations/build/.gitkeep

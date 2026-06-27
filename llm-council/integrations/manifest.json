@@ -1,0 +1,44 @@
+{
+  "documents": [
+    {
+      "code": "GEN",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000001-GEN",
+      "title": "DAN Construction Safety Manual (DCSM) — General Requirements",
+      "short": "DCSM — General Requirements",
+      "source": "New HSSE Management System 2026/06-Operations/01-000001-000000-DAN-PRC-HSE-000001-GEN_R00.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "PSHEP",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000002-PSHEP",
+      "title": "Specification for Contractor Project-Specific SH&E Plan (PSHEP)",
+      "short": "DCSM — Contractor PSHEP Specification",
+      "source": "New HSSE Management System 2026/06-Operations/01-000001-000000-DAN-PRC-HSE-000002-PSHEP_R00.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "CEMP",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000003-CEMP",
+      "title": "Construction Environmental Management Plan (CEMP)",
+      "short": "DCSM — Construction Environmental Management Plan",
+      "source": "New HSSE Management System 2026/06-Operations/01-000001-000000-DAN-PRC-HSE-000003-CEMP_R00.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "QULF",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000004-QULF",
+      "title": "Qualification Requirements for Contractor SH&E Personnel",
+      "short": "DCSM — SH&E Personnel Qualifications",
+      "source": "New HSSE Management System 2026/05-Support/01-000001-000000-DAN-PRC-HSE-000004-QULF_R00.docx",
+      "out_folder": "New HSSE Management System 2026/05-Support"
+    },
+    {
+      "code": "MTNG",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000005-MTNG",
+      "title": "Pre-Construction Meeting — Agenda Requirements",
+      "short": "DCSM — Pre-Construction Meeting Agenda",
+      "source": "New HSSE Management System 2026/06-Operations/01-000001-000000-DAN-PRC-HSE-000005-MTNG_R00.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    }
+  ]
+}
