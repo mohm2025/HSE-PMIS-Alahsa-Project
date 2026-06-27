@@ -39,6 +39,46 @@
       "short": "DCSM — Pre-Construction Meeting Agenda",
       "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000005MTNG__Jun_2026_REV00_MEETING_AGENDA_HSE.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "RSKMNG",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000006-RSKMNG",
+      "title": "SH&E Risk Management",
+      "short": "DCSM — SH&E Risk Management",
+      "source": "New HSSE Management System 2026/04-Risk-Management/01000001000000DANPRCHSE000006RSKMNG_Jun_2026_REV00_RISK_MANAGEMENT.docx",
+      "out_folder": "New HSSE Management System 2026/04-Risk-Management"
+    },
+    {
+      "code": "AHA",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000007-AHA",
+      "title": "Activity Hazard Analysis (AHA)",
+      "short": "DCSM — Activity Hazard Analysis",
+      "source": "New HSSE Management System 2026/04-Risk-Management/01000001000000DANPRCHSE000007AHA_Jun_2026_REV00_ACTIVITY_HAZARDS_ANALYSIS.docx",
+      "out_folder": "New HSSE Management System 2026/04-Risk-Management"
+    },
+    {
+      "code": "HZCOM",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000008-HZCOM",
+      "title": "Hazard Communication",
+      "short": "DCSM — Hazard Communication",
+      "source": "New HSSE Management System 2026/06-Operations/01000001000000DANPRCHSE000008HZCOM_Jun_2026_REV00_HAZARD_COMMUNICATION.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "TRNG",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000009-TRNG",
+      "title": "SH&E Training",
+      "short": "DCSM — SH&E Training",
+      "source": "New HSSE Management System 2026/05-Support/01000001000000DANPRCHSE000009TRNG_Jun_2026_REV00_TRAINING.docx",
+      "out_folder": "New HSSE Management System 2026/05-Support"
+    },
+    {
+      "code": "TMPWRK",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000010-TMPWRK",
+      "title": "Temporary Suspension of Work Notice",
+      "short": "DCSM — Temporary Suspension of Work",
+      "source": "New HSSE Management System 2026/10-Continual-Improvement/01000001000000DANPRCHSE000010TMPWRK_Jun_2026_REV00_Temporary_Suspension_of_Work_Notice.docx",
+      "out_folder": "New HSSE Management System 2026/10-Continual-Improvement"
     }
   ]
 }
