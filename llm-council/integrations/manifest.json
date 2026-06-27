@@ -159,6 +159,38 @@
       "short": "DCSM — Signage, Barrication & Traffic Control",
       "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000021TRFCNT__Jun_2026_REV01_Sinages_Barrication_and_Traffic_Control.docx",
       "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "OFFICMNGT",
+      "docno": "01-DAN-PRC-HSE-000022-OFFICMNGT",
+      "title": "Field and Office Facilities",
+      "short": "DCSM — Field and Office Facilities",
+      "source": "New HSSE Management System 2026/05-Support/01-DAN-PRC-HSE-000022OFFICMNGT__Jun_2026_REV01_FIELD_AND_OFFICE_FACILITIES.docx",
+      "out_folder": "New HSSE Management System 2026/05-Support"
+    },
+    {
+      "code": "FALLPRT",
+      "docno": "01-DAN-PRC-HSE-000023-FALLPRT",
+      "title": "Fall Protection and Prevention — Working at Height",
+      "short": "DCSM — Fall Protection / Working at Height",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000023FALLPRT__Jun_2026_REV01_FALL_PROTECTION_AND_PREVENTION___WORKING_AT_HEIGHT.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "LDR",
+      "docno": "01-DAN-PRC-HSE-000024-LDR",
+      "title": "Ladders",
+      "short": "DCSM — Ladders",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000024LDR__Jun_2026_REV01_Ladders.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
+    },
+    {
+      "code": "SCFF",
+      "docno": "01-DAN-PRC-HSE-000025-SCFF",
+      "title": "Scaffolding",
+      "short": "DCSM — Scaffolding",
+      "source": "New HSSE Management System 2026/06-Operations/01-DAN-PRC-HSE-000025SCFF__Jun_2026_REV01_Scaffolding.docx",
+      "out_folder": "New HSSE Management System 2026/06-Operations"
     }
   ]
 }

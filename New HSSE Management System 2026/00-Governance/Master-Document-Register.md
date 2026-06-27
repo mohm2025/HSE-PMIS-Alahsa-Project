@@ -26,6 +26,10 @@
 | 01-DAN-PRC-HSE-000019-PTW | Permit to Work (PTW) | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000020-FIRPRT | Fire Protection and Prevention | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000021-TRFCNT | Signage, Barrication and Traffic Control | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000022-OFFICMNGT | Field and Office Facilities | Procedure | R01 | Issued | 05-Support |
+| 01-DAN-PRC-HSE-000023-FALLPRT | Fall Protection and Prevention — Working at Height | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000024-LDR | Ladders | Procedure | R01 | Issued | 06-Operations |
+| 01-DAN-PRC-HSE-000025-SCFF | Scaffolding | Procedure | R01 | Issued | 06-Operations |
 
 > Sequence 000016 is not yet issued (reserved).
 
