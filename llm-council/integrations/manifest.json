@@ -79,6 +79,46 @@
       "short": "DCSM — Temporary Suspension of Work",
       "source": "New HSSE Management System 2026/10-Continual-Improvement/01000001000000DANPRCHSE000010TMPWRK_Jun_2026_REV00_Temporary_Suspension_of_Work_Notice.docx",
       "out_folder": "New HSSE Management System 2026/10-Continual-Improvement"
+    },
+    {
+      "code": "MPSR",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000011-MPSR",
+      "title": "Monthly SH&E Performance Statistical Report",
+      "short": "DCSM — Monthly SH&E Performance Report",
+      "source": "New HSSE Management System 2026/08-Performance-Evaluation/01000001000000DANPRCHSE000011MPSR_Jun_2026_REV00_Monthly_SHE_Performance_Statistical_Report.docx",
+      "out_folder": "New HSSE Management System 2026/08-Performance-Evaluation"
+    },
+    {
+      "code": "ACCRPT",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000012-ACCRPT",
+      "title": "Accident / Incident Reporting and Investigation",
+      "short": "DCSM — Accident / Incident Reporting",
+      "source": "New HSSE Management System 2026/09-Incident-Management/01000001000000DANPRCHSE000012ACCRPT_Jun_2026_REV00_ACCIDENT__INCIDENT_REPORTING_AND_INVESTIGATION.docx",
+      "out_folder": "New HSSE Management System 2026/09-Incident-Management"
+    },
+    {
+      "code": "ERP",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000013-ERP",
+      "title": "Emergency Planning and Response",
+      "short": "DCSM — Emergency Planning and Response",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000013ERP_Jun_2026_REV00_Emergency_Planning_and_Response.docx",
+      "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
+    },
+    {
+      "code": "FAC",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000014-FAC",
+      "title": "First Aid",
+      "short": "DCSM — First Aid",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000014FAC_Jun_2026_REV00_First_aid.docx",
+      "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
+    },
+    {
+      "code": "AED",
+      "docno": "01-000001-000000-DAN-PRC-HSE-000015-AED",
+      "title": "Automated External Defibrillator (AED)",
+      "short": "DCSM — Automated External Defibrillator",
+      "source": "New HSSE Management System 2026/07-Emergency-Management/01000001000000DANPRCHSE000015AED_Jun_2026_REV00_Automatic_External_Defibrillator.docx",
+      "out_folder": "New HSSE Management System 2026/07-Emergency-Management"
     }
   ]
 }

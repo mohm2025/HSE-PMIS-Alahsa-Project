@@ -14,6 +14,11 @@
 | 01-000001-000000-DAN-PRC-HSE-000008-HZCOM | Hazard Communication | Procedure | R00 | Issued | 06-Operations |
 | 01-000001-000000-DAN-PRC-HSE-000009-TRNG | SH&E Training | Procedure | R00 | Issued | 05-Support |
 | 01-000001-000000-DAN-PRC-HSE-000010-TMPWRK | Temporary Suspension of Work Notice | Procedure | R00 | Issued | 10-Continual-Improvement |
+| 01-000001-000000-DAN-PRC-HSE-000011-MPSR | Monthly SH&E Performance Statistical Report | Procedure | R00 | Issued | 08-Performance-Evaluation |
+| 01-000001-000000-DAN-PRC-HSE-000012-ACCRPT | Accident / Incident Reporting and Investigation | Procedure | R00 | Issued | 09-Incident-Management |
+| 01-000001-000000-DAN-PRC-HSE-000013-ERP | Emergency Planning and Response | Procedure | R00 | Issued | 07-Emergency-Management |
+| 01-000001-000000-DAN-PRC-HSE-000014-FAC | First Aid | Procedure | R00 | Issued | 07-Emergency-Management |
+| 01-000001-000000-DAN-PRC-HSE-000015-AED | Automated External Defibrillator (AED) | Procedure | R00 | Issued | 07-Emergency-Management |
 
 ## Conventions
 - **Template:** all documents follow one DAN-branded template (brown #542A12, Tahoma, brand band, embedded DAN logo, document-control + approval blocks, TOC, branded header/footer) and the standard sections: Purpose, Scope, References, Definitions, Responsibilities, Procedure, Records, Related Documents, Revision History.
@@ -31,3 +36,8 @@
 - **HZCOM** — separated primary/secondary labelling requirements; structured the MSDS lifecycle.
 - **TRNG** — structured the training triggers, induction, orientation, specialist training and competency assessment.
 - **TMPWRK** — structured the SVR and TSW flows and close-out.
+- **MPSR** — structured the monthly statistical-reporting procedure and timeline.
+- **ACCRPT** — built the incident-type glossary, the 3-level classification table and the reporting-matrix timeline table; structured investigation and report contents.
+- **ERP** — built the emergency-response decision matrix; structured alarms, evacuation, exits and reporting.
+- **FAC** — structured first-aid planning, providers, facilities, equipment, transport and outside treatment.
+- **AED** — structured the chain of survival, equipment/maintenance, placement, use, follow-up and QA records.
