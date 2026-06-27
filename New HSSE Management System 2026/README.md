@@ -1,7 +1,7 @@
 # New HSSE Management System 2026 — DAN Company
 
 Integrated HSSE Management System, rebuilt from the legacy DAN Construction
-Procedures and re-branded per the DAN Brand Book (brown #542A12, Tahoma).
+Procedures and re-branded per the DAN Brand Book (brown #542A12, Tahoma). Issue date: June 2026.
 All documents follow one consistent template: cover, document control,
 approval block, table of contents, branded header/footer, and the standard
 sections (Purpose, Scope, References, Definitions, Responsibilities,
@@ -28,3 +28,6 @@ Procedure, Records, Related Documents, Revision History).
 |---------|-------|-----|--------|
 | 01-000001-000000-DAN-PRC-HSE-000001-GEN | DCSM — General Requirements | R00 | 06-Operations |
 | 01-000001-000000-DAN-PRC-HSE-000002-PSHEP | Specification for Contractor PSHEP | R00 | 06-Operations |
+| 01-000001-000000-DAN-PRC-HSE-000003-CEMP | Construction Environmental Management Plan | R00 | 06-Operations |
+| 01-000001-000000-DAN-PRC-HSE-000004-QULF | Qualification Requirements for Contractor SH&E Personnel | R00 | 05-Support |
+| 01-000001-000000-DAN-PRC-HSE-000005-MTNG | Pre-Construction Meeting — Agenda Requirements | R00 | 06-Operations |
