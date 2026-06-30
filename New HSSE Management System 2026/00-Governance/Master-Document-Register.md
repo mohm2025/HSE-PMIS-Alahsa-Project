@@ -56,6 +56,11 @@
 | 01-DAN-PRC-HSE-000048-NHTWRK | Night Work | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000049-WASTMGT | Waste Management | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000050-GLOSSARY | Glossary of Terms and Definitions | Reference | R01 | Issued | 00-Governance |
+| 01-DAN-CKL-HSE-000001 | Night Work Checklist | Checklist | R01 | Issued | Checklists |
+| 01-DAN-CKL-HSE-000002 | Critical / High-Risk Activities Checklist | Checklist | R01 | Issued | Checklists |
+| 01-DAN-CKL-HSE-000003 | Permit to Work Review Checklist | Checklist (Excel) | R01 | Issued | Checklists |
+| 01-DAN-CKL-HSE-000004 | Communication Brief — Attendance Sheet | Form | R01 | Issued | Checklists |
+| 01-DAN-CKL-HSE-000005 | Holiday Work Checklist | Checklist | R01 | Issued | Checklists |
 
 > Sequence 000016 is not yet issued (reserved).
 
