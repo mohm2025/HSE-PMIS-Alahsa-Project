@@ -81,6 +81,10 @@
 | 01-DAN-TMP-HSE-000018 | Cranes / Tower Cranes & Heavy Equipment Operator Register | Register (Excel) | R01 | Issued | Registers |
 | 01-DAN-TMP-HSE-000019 | Cranes / Tower Cranes & Heavy Equipment Register | Register (Excel) | R01 | Issued | Registers |
 | 01-DAN-TMP-HSE-000020 | Contractors' Direct Manpower Register | Register (Excel) | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000021 | Contractors' Indirect Manpower Register | Register (Excel) | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000022 | HSSE Teams Weekly Register | Register (Excel) | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000023 | Permit to Work Register | Register | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000028 | Method Statement Review Template | Template | R01 | Issued | Templates |
 
 > Sequence 000016 (procedure) remains reserved; 01-DAN-RPT-HSE-000016 is the Non-Conformance Report form and is unrelated to the reserved procedure slot.
 
