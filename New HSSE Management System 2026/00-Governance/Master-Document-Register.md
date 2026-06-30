@@ -66,6 +66,11 @@
 | 01-DAN-RPT-HSE-000024 | Initial Notification Report | Report/Form | R01 | Issued | Forms |
 | 01-DAN-RPT-HSE-000025 | Incident Preliminary Report | Report/Form (Excel) | R01 | Issued | Forms |
 | 01-DAN-RPT-HSE-000026 | Incident Investigation Report | Report/Form (Excel) | R01 | Issued | Forms |
+| 01-DAN-RPT-HSE-000027 | Warning Notice Report for HSSE Violations | Report/Form | R01 | Issued | Forms |
+| 01-DAN-TMP-HSE-000006 | Daily Activity Brief Form | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000007 | Lesson Learned Bulletin Form | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000008 | Witness Statement Form | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000009 | Stop Work Notice Form | Template | R01 | Issued | Templates |
 
 > Sequence 000016 (procedure) remains reserved; 01-DAN-RPT-HSE-000016 is the Non-Conformance Report form and is unrelated to the reserved procedure slot.
 
