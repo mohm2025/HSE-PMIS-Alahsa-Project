@@ -7,6 +7,7 @@
 | Document No. | Title | Type | Rev | Status | Folder |
 |--------------|-------|------|-----|--------|--------|
 | 01-DAN-MAN-HSE-000001 | Construction HSE Management System Manual (apex; ISO 45001/14001 structure) | Manual | R01 | Issued | 00-Governance |
+| 01-DAN-MAN-QMS-000001 | Quality Management Manual (ISO 9001:2015 structure; DAN construction project-delivery scope) | Manual | v00 | Issued | 00-Governance |
 | 01-DAN-PRC-HSE-000001-GEN | DCSM — General Requirements | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000002-PSHEP | Specification for Contractor PSHEP | Specification | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000003-CEMP | Construction Environmental Management Plan | Procedure | R01 | Issued | 06-Operations |
