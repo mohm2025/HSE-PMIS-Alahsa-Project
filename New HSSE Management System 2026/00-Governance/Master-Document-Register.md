@@ -24,6 +24,7 @@
 | 01-DAN-PRC-HSE-000013-ERP | Emergency Planning and Response | Procedure | R01 | Issued | 07-Emergency-Management |
 | 01-DAN-PRC-HSE-000014-FAC | First Aid | Procedure | R01 | Issued | 07-Emergency-Management |
 | 01-DAN-PRC-HSE-000015-AED | Automated External Defibrillator (AED) | Procedure | R01 | Issued | 07-Emergency-Management |
+| 01-DAN-PRC-HSE-000016-HTSTRS | Heat Stress Control | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000017-PPE | Personal Protective Equipment (PPE) | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000018-COSHH | Materials Handling / Storage and COSHH | Procedure | R01 | Issued | 06-Operations |
 | 01-DAN-PRC-HSE-000019-PTW | Permit to Work (PTW) | Procedure | R01 | Issued | 06-Operations |
