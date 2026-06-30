@@ -76,6 +76,11 @@
 | 01-DAN-TMP-HSE-000012 | Emergency Drill Report Form | Template | R01 | Issued | Templates |
 | 01-DAN-TMP-HSE-000013 | Emergency Drill Evaluation Form | Template | R01 | Issued | Templates |
 | 01-DAN-TMP-HSE-000014 | Night Work Permit | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000015 | Holiday Work Request Form | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000017 | Risk Assessment Template | Template | R01 | Issued | Templates |
+| 01-DAN-TMP-HSE-000018 | Cranes / Tower Cranes & Heavy Equipment Operator Register | Register (Excel) | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000019 | Cranes / Tower Cranes & Heavy Equipment Register | Register (Excel) | R01 | Issued | Registers |
+| 01-DAN-TMP-HSE-000020 | Contractors' Direct Manpower Register | Register (Excel) | R01 | Issued | Registers |
 
 > Sequence 000016 (procedure) remains reserved; 01-DAN-RPT-HSE-000016 is the Non-Conformance Report form and is unrelated to the reserved procedure slot.
 
