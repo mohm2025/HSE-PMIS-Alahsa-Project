@@ -8,6 +8,7 @@
 |--------------|-------|------|-----|--------|--------|
 | 01-DAN-MAN-HSE-000001 | Construction HSE Management System Manual (apex; ISO 45001/14001 structure) | Manual | R01 | Issued | 00-Governance |
 | 01-DAN-MAN-QMS-000001 | Quality Management Manual (ISO 9001:2015 structure; DAN construction project-delivery scope) | Manual | v00 | Issued | 00-Governance |
+| 01-DAN-DQR-QMS-000001 | Design Quality Requirements (ER, RACI matrix, Design Review Process Map; ISO 9001:2015) | Requirements | R00 | Issued | 00-Governance |
 | 01-DAN-PLN-HSE-000001-PHSEW | Project Health, Safety, Security, Environment & Welfare (HSSE&W) Plan — Employer/Client management & assurance plan | Plan | R00 | Issued | 03-Planning |
 | 01-DAN-PLN-QMS-000001-QMP | Quality Management Plan (ISO 9001:2015 structure; satisfies Client Quality Management Review requirements) | Plan | R00 | Issued | 03-Planning |
 | 01-DAN-PRC-HSE-000001-GEN | DCSM — General Requirements | Procedure | R01 | Issued | 06-Operations |
