@@ -6,6 +6,7 @@
 
 | Document No. | Title | Type | Rev | Status | Folder |
 |--------------|-------|------|-----|--------|--------|
+| DAN-IMS-POL-002 | Health, Safety, Environment & Welfare Policy | Policy | Active | Issued | 02-Leadership |
 | 01-DAN-MAN-HSE-000001 | Construction HSE Management System Manual (apex; ISO 45001/14001 structure) | Manual | R01 | Issued | 00-Governance |
 | 01-DAN-MAN-QMS-000001 | Quality Management Manual (ISO 9001:2015 structure; DAN construction project-delivery scope) | Manual | v00 | Issued | 00-Governance |
 | 01-DAN-DQR-QMS-000001 | Design Quality Requirements (ER, RACI matrix, Design Review Process Map; ISO 9001:2015) | Requirements | R00 | Issued | 00-Governance |
