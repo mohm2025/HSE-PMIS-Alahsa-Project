@@ -9,10 +9,11 @@ Permits, Training…), so the files on disk line up with the system you already 
 
 | File | What it does |
 |------|--------------|
-| **`Build-AlhasaPalmFolders.ps1`** | PowerShell script that builds the full coded folder tree automatically. Safe to re-run — only adds missing folders, never deletes. |
+| **`Build-AlhasaPalmFolders.ps1`** | PowerShell script that builds the full coded folder tree **on your PC / in a synced OneDrive folder**. Safe to re-run — only adds missing folders, never deletes. |
 | **`RUN-ME_Build-Folders.bat`** | Double-click launcher for the script (for PCs where right-click → *Run with PowerShell* is blocked). |
+| **`Build-SharePoint-Library.ps1`** | Cloud version — provisions the **same coded tree directly in a SharePoint Online / OneDrive-for-Business document library** (server-side, no local sync). Uses PnP PowerShell. |
 | **`Alhasa-Palm-HSE-File-Organization-Guide.docx`** | Printable reference guide (open in Word; export to PDF with *File → Save as PDF*). |
-| **`Alhasa-Palm-HSE-File-Register.xlsx`** | Master document log — one row per file, with dropdowns and an auto-count summary. |
+| **`Alhasa-Palm-HSE-File-Register.xlsx`** | Master document log — one row per file, with dropdowns, an auto-count summary, and **11 starter template rows** (one per category) to copy from. |
 
 ## How to set it up (3 steps)
 
@@ -26,6 +27,23 @@ Permits, Training…), so the files on disk line up with the system you already 
 
 > Prefer to point the script at a specific path instead? Open the `.ps1`, set
 > `$TargetRoot = "C:\...\Alhasa Palm Project-Tamimi"`, and run it.
+
+## Cloud / shared-drive setup (OneDrive & SharePoint)
+
+You have two ways to get the coded tree into the cloud — pick one:
+
+- **Simplest (recommended): let OneDrive sync it.** If your `Alhasa Palm Project-Tamimi`
+  folder is already a synced OneDrive/SharePoint folder on your PC, just run
+  `Build-AlhasaPalmFolders.ps1` inside it. The folders you create sync up to the
+  cloud automatically — nothing else to do.
+- **Server-side (no sync): `Build-SharePoint-Library.ps1`.** Builds the same
+  structure straight into a SharePoint document library (e.g. a shared HSE team
+  site everyone opens in the browser). Needs the PnP PowerShell module once:
+  `Install-Module PnP.PowerShell -Scope CurrentUser`, then set your site URL and
+  library name at the top of the script and run it.
+
+> Prefer Google Drive instead of SharePoint? The same folder codes work there too —
+> ask and it can be built into your Drive directly.
 
 ## The coded folder structure
 
