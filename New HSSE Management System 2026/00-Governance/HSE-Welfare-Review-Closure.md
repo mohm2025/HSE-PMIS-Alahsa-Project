@@ -9,10 +9,10 @@ This report records the HSE & Welfare review comments, the action taken to close
 
 | # | Finding (management comment) | Action taken | Document (where changed) | Status |
 |---|------------------------------|--------------|--------------------------|--------|
-| **1** | **HSE&W Policy** — marked "Active" but no visible signature (typed CEO name only); no evidence of workforce communication. | Policy rebuilt in DAN house style with **named CEO (Abdulrahman Aba Alkhail) as approver and signatory** and a signature block. Physical/e-signature and the workforce-briefing evidence are applied/attached by DAN at issue. | `02-Leadership/DAN-IMS-POL-002__Jun_2026_HSE_and_Welfare_Policy.docx` | **Document ready** (signature/briefing evidence pending) |
-| **2** | **HSSE&W Plan — approval status** — document at "Draft for review"; approval table unsigned. | Status changed to **"Approved — Issued for Implementation."** Approval table populated with named signatories & dates: Prepared by Mohammed Alshehri (HSSE Manager), Reviewed by Amjed Sammari (Delivery Director), Approved by AbdulHalim Kaissy (CDO). | `03-Planning/01-DAN-PLN-HSE-000001-PHSEW__…Project_HSSEW_Plan.docx` | **Closed** |
-| **3** | **HSSE&W Plan — incomplete content** — `[INSERT]` placeholders: heat/midday-break rule, security-plan reference, legal register, KPI targets. | All placeholders populated. **KPI targets: LTIFR ≤ 0.5, TRIR ≤ 1.0, near-miss corrective-action closure ≥ 90 %.** KSA midday-work/heat rule, KSA legal instruments, security and environmental-permit wording completed. | `03-Planning/01-DAN-PLN-HSE-000001-PHSEW__…` | **Closed** |
-| **4** | **HSSE&W Plan — authorship** — "Prepared by" recorded as a role only, generic phrasing. | **Named authorship** applied in the control and approval blocks (Prepared by Mohammed Alshehri; Reviewed by Amjed Sammari; Approved by AbdulHalim Kaissy). | `03-Planning/01-DAN-PLN-HSE-000001-PHSEW__…` | **Closed** |
+| **1** | **HSE&W Policy** — marked "Active" but no visible signature (typed CEO name only); no evidence of workforce communication. | Policy rebuilt in DAN house style with **named CEO (Abdulrahman Aba Alkhail) as approver and signatory** and a signature block. Physical/e-signature and the workforce-briefing evidence are applied/attached by DAN at issue. | `02-Leadership/01-000001-000000-DAN-HSE-POL-000001__Jun_2026_HSE_and_Welfare_Policy.docx` | **Document ready** (signature/briefing evidence pending) |
+| **2** | **HSSE&W Plan — approval status** — document at "Draft for review"; approval table unsigned. | Status changed to **"Approved — Issued for Implementation."** Approval table populated with named signatories & dates: Prepared by Mohammed Alshehri (HSSE Manager), Reviewed by Amjed Sammari (Delivery Director), Approved by AbdulHalim Kaissy (CDO). | `03-Planning/01-000001-000000-DAN-HSE-PLN-000001__…Project_HSSEW_Plan.docx` | **Closed** |
+| **3** | **HSSE&W Plan — incomplete content** — `[INSERT]` placeholders: heat/midday-break rule, security-plan reference, legal register, KPI targets. | All placeholders populated. **KPI targets: LTIFR ≤ 0.5, TRIR ≤ 1.0, near-miss corrective-action closure ≥ 90 %.** KSA midday-work/heat rule, KSA legal instruments, security and environmental-permit wording completed. | `03-Planning/01-000001-000000-DAN-HSE-PLN-000001__…` | **Closed** |
+| **4** | **HSSE&W Plan — authorship** — "Prepared by" recorded as a role only, generic phrasing. | **Named authorship** applied in the control and approval blocks (Prepared by Mohammed Alshehri; Reviewed by Amjed Sammari; Approved by AbdulHalim Kaissy). | `03-Planning/01-000001-000000-DAN-HSE-PLN-000001__…` | **Closed** |
 | **5** | **Contractor HSE Plan — Palm Al Ahsa (Rev. B)** — returned by CSC at Code B (5×5 vs 4×4 risk-matrix inconsistency; full-time Safety Officer not appointed); no Rev. C / Code A closure. | Contractor-authored document — to be rectified and resubmitted by the Contractor as Rev. C for PMC Code A approval. | (with Contractor via PMC) | **Open** |
 | **6** | **Document governance** — register/tracker of revision status, approval dates and named owners requested. | **Management Review Action Log** created; complemented by the **Master Document Register**. | `00-Governance/Management-Review-Action-Log.md` · `00-Governance/Master-Document-Register.md` | **Closed** |
 
@@ -20,10 +20,10 @@ This report records the HSE & Welfare review comments, the action taken to close
 
 | CoE HMR component | DAN document | Location | Status |
 |-------------------|--------------|----------|--------|
-| HSE & Welfare Policy | HSE & Welfare Policy (DAN-IMS-POL-002) | `02-Leadership/` | Available |
-| HSE & Welfare Manual | Construction HSE Management System Manual (01-DAN-MAN-HSE-000001) | `00-Governance/` | Available |
-| Project HSE & Welfare Plan | Project HSSE & Welfare Plan (01-DAN-PLN-HSE-000001-PHSEW) | `03-Planning/` | Available (approved) |
-| Construction HSE & Welfare Periodic Reports | Monthly SH&E Performance Statistical Report (01-DAN-PRC-HSE-000011) + incident / NCR report forms | `08-Performance-Evaluation/`, `Forms/`, `09-Incident-Management/` | Available |
+| HSE & Welfare Policy | HSE & Welfare Policy (01-000001-000000-DAN-HSE-POL-000001) | `02-Leadership/` | Available |
+| HSE & Welfare Manual | Construction HSE Management System Manual (01-000001-000000-DAN-HSE-MAN-000001) | `00-Governance/` | Available |
+| Project HSE & Welfare Plan | Project HSSE & Welfare Plan (01-000001-000000-DAN-HSE-PLN-000001) | `03-Planning/` | Available (approved) |
+| Construction HSE & Welfare Periodic Reports | Monthly SH&E Performance Statistical Report (01-000001-000000-DAN-HSE-PRC-000011) + incident / NCR report forms | `08-Performance-Evaluation/`, `Forms/`, `09-Incident-Management/` | Available |
 
 ## 3. Cross-cutting changes applied across the document set
 
