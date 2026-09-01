@@ -94,6 +94,11 @@
 | 01-000001-000000-DAN-HSE-MNR-000019 | HSE Minimum Requirement — Tools and Equipment | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000020 | HSE Minimum Requirement — Hazardous Materials | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000021 | HSE Minimum Requirement — Permit to Work | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000022 | HSE Minimum Requirement — Personal Protective Equipment | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000023 | HSE Minimum Requirement — Working Above or Adjacent to Water | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000024 | HSE Minimum Requirement — Overhead and Underground Services | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000025 | HSE Minimum Requirement — Consultation and Communication | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000026 | HSE Minimum Requirement — Occupational Health Manual | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-TMP-000001 | Night Work Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000002 | Critical / High-Risk Activities Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000003 | Permit to Work Review Checklist | Checklist (Excel) | R01 | Issued | Checklists |
