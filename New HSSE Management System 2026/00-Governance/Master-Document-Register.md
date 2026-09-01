@@ -79,6 +79,11 @@
 | 01-000001-000000-DAN-HSE-MNR-000004 | HSE Minimum Requirement — Access, Egress, Barricades and Stairs | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000005 | HSE Minimum Requirement — Blasting and Protective Coating | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000006 | HSE Minimum Requirement — Compressed Gas Cylinders | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000007 | HSE Minimum Requirement — Concrete and Masonry Work | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000008 | HSE Minimum Requirement — Confined Space | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000009 | HSE Minimum Requirement — Electrical Safety | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000010 | HSE Minimum Requirement — Lock Out / Tag Out | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000011 | HSE Minimum Requirement — Excavations | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-TMP-000001 | Night Work Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000002 | Critical / High-Risk Activities Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000003 | Permit to Work Review Checklist | Checklist (Excel) | R01 | Issued | Checklists |
