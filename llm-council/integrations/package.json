@@ -1,0 +1,9 @@
+{
+  "name": "llm-council-integrations",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Render Council rewrites into branded DAN .docx files",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
