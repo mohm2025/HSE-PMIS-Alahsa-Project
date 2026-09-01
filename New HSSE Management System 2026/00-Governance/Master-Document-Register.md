@@ -99,6 +99,7 @@
 | 01-000001-000000-DAN-HSE-MNR-000024 | HSE Minimum Requirement — Overhead and Underground Services | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000025 | HSE Minimum Requirement — Consultation and Communication | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000026 | HSE Minimum Requirement — Occupational Health Manual | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000028 | HSE Minimum Requirement — Emergency Management Requirements and Supporting Forms | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000029 | HSE Minimum Requirement — Sustainability and Environment Requirements | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000030 | HSE Minimum Requirement — Project Subcontractor HSE Management Requirements | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000031 | HSE Minimum Requirement — Project HSE Interface Management Requirements | Minimum Requirement | R01 | Issued | 06-Operations |
