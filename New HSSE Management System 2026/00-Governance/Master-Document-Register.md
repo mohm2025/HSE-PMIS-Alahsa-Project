@@ -84,6 +84,11 @@
 | 01-000001-000000-DAN-HSE-MNR-000009 | HSE Minimum Requirement — Electrical Safety | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000010 | HSE Minimum Requirement — Lock Out / Tag Out | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-MNR-000011 | HSE Minimum Requirement — Excavations | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000012 | HSE Minimum Requirement — Power Lift Trucks | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000013 | HSE Minimum Requirement — Mobile Elevated Working Platform | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000014 | HSE Minimum Requirement — Work at Height and Fall Prevention | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000015 | HSE Minimum Requirement — Scaffold Systems | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000016 | HSE Minimum Requirement — Ladder Safety | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-TMP-000001 | Night Work Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000002 | Critical / High-Risk Activities Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000003 | Permit to Work Review Checklist | Checklist (Excel) | R01 | Issued | Checklists |
