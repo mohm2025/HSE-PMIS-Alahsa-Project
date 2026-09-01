@@ -10,7 +10,7 @@
 > - **Project** `000001` = Tuaja Palm 1
 > - **Company** `000000` · **Originator** `DAN` (Client)
 > - **Discipline** — `HSE` = Health, Safety, Security, Environment & Welfare (HSSE&W) *(Block-5 addition, notified to the Employer)*; `QMN` = Quality Management
-> - **Document type** — `MAN` Manual · `PLN` Plan · `PRC` Procedure · `RPT` Report · `TMP` Template/Form · `SPC` Specification/Requirements · `POL` Policy *(Block-6 addition, notified to the Employer)*
+> - **Document type** — `MAN` Manual · `PLN` Plan · `PRC` Procedure · `RPT` Report · `TMP` Template/Form · `SPC` Specification/Requirements · `POL` Policy · `MNR` Minimum Requirement *(`POL` and `MNR` are Block-6 additions, notified to the Employer)*
 > - **Sequence** — 6-digit, unique per discipline+type (existing sequence numbers retained).
 
 | Document No. | Title | Type | Rev | Status | Folder |
@@ -74,6 +74,11 @@
 | 01-000001-000000-DAN-HSE-PRC-000048 | Night Work | Procedure | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-PRC-000049 | Waste Management | Procedure | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-PRC-000050 | Glossary of Terms and Definitions | Reference | R01 | Issued | 00-Governance |
+| 01-000001-000000-DAN-HSE-MNR-000002 | HSE Minimum Requirement — General Site Safety Rules | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000003 | HSE Minimum Requirement — Competence and Training | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000004 | HSE Minimum Requirement — Access, Egress, Barricades and Stairs | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000005 | HSE Minimum Requirement — Blasting and Protective Coating | Minimum Requirement | R01 | Issued | 06-Operations |
+| 01-000001-000000-DAN-HSE-MNR-000006 | HSE Minimum Requirement — Compressed Gas Cylinders | Minimum Requirement | R01 | Issued | 06-Operations |
 | 01-000001-000000-DAN-HSE-TMP-000001 | Night Work Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000002 | Critical / High-Risk Activities Checklist | Checklist | R01 | Issued | Checklists |
 | 01-000001-000000-DAN-HSE-TMP-000003 | Permit to Work Review Checklist | Checklist (Excel) | R01 | Issued | Checklists |
